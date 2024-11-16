@@ -1,16 +1,19 @@
-import {CheckboxGroup, Checkbox} from "@nextui-org/react";
+
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import TopBar from "./components/Navbar/TopBar";
+import Home from "./pages/Home";
+import Coupon from "./pages/Coupon";
+import WebcamDetection from "./components/WebCamDetection";
 
 export default function App() {
   return (
-    <CheckboxGroup
-      label="Select cities"
-      defaultValue={["buenos-aires", "london"]}
-    >
-      <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
-      <Checkbox value="sydney">Sydney</Checkbox>
-      <Checkbox value="san-francisco">San Francisco</Checkbox>
-      <Checkbox value="london">London</Checkbox>
-      <Checkbox value="tokyo">Tokyo</Checkbox>
-    </CheckboxGroup>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/scan-products" element={<WebcamDetection />} />
+        <Route path="/coupon" element={<Coupon />} />
+      </Routes>
+    </div>
   );
 }
