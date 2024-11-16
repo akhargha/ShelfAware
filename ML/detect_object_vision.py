@@ -1,3 +1,4 @@
+# 필요한 라이브러리 임포트
 import cv2
 from ultralytics import YOLO
 import easyocr
@@ -37,9 +38,11 @@ def extract_text_with_easyocr(image_path):
     print(f"Extracted text: {extracted_text}")
     return extracted_text
 
-# YOLO 세그멘테이션 결과 시각화
+# YOLO 세그멘테이션 결과 시각화 (인간 객체에는 색상 표시 안 함)
 def visualize_segmentation(frame, masks, labels, colors):
     for mask, label, color in zip(masks, labels, colors):
+        if label == "human":
+            continue  # 인간 객체는 색상 표시 생략
         mask = mask.cpu().numpy().astype("uint8")  # 마스크를 uint8로 변환
         mask_resized = cv2.resize(mask, (frame.shape[1], frame.shape[0]), interpolation=cv2.INTER_NEAREST)  # 마스크 크기 조정
         overlay = np.zeros_like(frame, dtype=np.uint8)
@@ -115,7 +118,7 @@ def main():
             else:  # 인간이 아닌 객체
                 mask = results[0].masks.data[i]
                 masks.append(mask)  # 마스크 추가
-                labels.append("non-human")
+                labels.append("Object")
                 colors.append(NON_HUMAN_COLOR)
                 non_human_objects.append((mask, (x1, y1, x2, y2), confidence, label))  # non-human 객체 정보 저장
 
@@ -140,7 +143,7 @@ def main():
             object_index += 1
             non_human_count += 1  # 비인간 객체 수 증가
 
-        # 시각화
+        # 시각화 (인간 제외)
         segmented_frame = visualize_segmentation(frame, masks, labels, colors)
 
         # 비디오 디스플레이
