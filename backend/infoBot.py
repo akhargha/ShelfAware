@@ -16,11 +16,17 @@ from asgiref.wsgi import WsgiToAsgi
 from hypercorn.config import Config
 from hypercorn.asyncio import serve
 import asyncio
+from flask_cors import CORS
 # Load environment variables
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app, resources={
+    r"/*": {
+        "origins": ["http://localhost:5173"]
+    }
+})
 
 # Constants from environment variables
 PERPLEXITY_API_URL = os.getenv('PERPLEXITY_API_URL')
@@ -81,7 +87,7 @@ def call_perplexity_api(messages: List[Dict[str, str]]) -> Dict[str, Any]:
 def get_raw_product_info(product_name: str) -> str:
     """Get detailed raw information about the product with improved prompt engineering."""
     prompt = f"""
-    Provide ONLY a JSON object for {product_name} with EXACT numeric values (no text descriptions in numeric fields).
+    Provide ONLY a JSON object for {product_name} with EXACT numeric values (no text descriptions in numeric fields). If the {product_name} is not full, then make sure to find the closest market fit to it.
     Follow this STRICT format:
 
     {{
@@ -129,7 +135,7 @@ def get_raw_product_info(product_name: str) -> str:
                 "Sustainability_Information": {{
                     "Biodegradable": "Yes/No",
                     "Recyclable": "Yes/No",
-                    "Sustainability_rating": number
+                    "Sustainability_rating": number (must be higher than original product)
                 }},
                 "Price": number,
                 "Reliability_index": number,

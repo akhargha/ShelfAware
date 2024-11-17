@@ -8,8 +8,6 @@ export default function Home() {
     <div>
       <TopBar />
       <VideoBox />
-      <h1>Welcome to Shelf Aware</h1>
-      <p>Manage your items efficiently.</p>
     </div>
   );
 }

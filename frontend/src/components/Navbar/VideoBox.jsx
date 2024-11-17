@@ -1,206 +1,174 @@
-"use client";
-import React, { useRef, useEffect, useState } from "react";
+'use client';
 
-const VideoBox = () => {
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
-  const [isStreaming, setIsStreaming] = useState(false);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [detections, setDetections] = useState([]);
-  const [error, setError] = useState(null);
-  const [attempts, setAttempts] = useState(0);
-  const maxAttempts = 3;
+import { useState, useEffect, useRef } from 'react';
+import { Camera, StopCircle, PlayCircle } from 'lucide-react';
+import {CircularProgress} from "@nextui-org/react";
+import InfoBox from "./InfoBox"; // Import the InfoBox component
 
-  const backendBaseUrl = "http://localhost:5001";
+const API_BASE_URL = 'http://localhost:5002';
 
-  // Start the camera stream
-  const startCamera = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: "environment",
-          width: { ideal: 1280 },
-          height: { ideal: 720 },
-        },
-      });
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        setIsStreaming(true);
-        setError(null);
-      }
-    } catch (err) {
-      setError("Unable to access camera. Please ensure you have granted camera permissions.");
-      console.error("Error accessing camera:", err);
-    }
-  };
+export default function Home() {
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [detectedText, setDetectedText] = useState(null);
+  const [error, setError] = useState(null);
+  const [streamKey, setStreamKey] = useState(Date.now());
+  const [loading, setLoading] = useState(false);
+  const [showInfoBox, setShowInfoBox] = useState(false);
+  const imgRef = useRef(null);
 
-  // Start vision processing
-  const startVisionProcessing = async () => {
-    try {
-      setIsProcessing(true);
-      setError(null);
-      
-      const response = await fetch(`${backendBaseUrl}/start_vision_processing`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  const startProcessing = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/start`, {
+        method: 'POST',
+      });
+      const data = await response.json();
 
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Failed to start vision processing");
-      
-      pollResults();
-    } catch (err) {
-      handleProcessingError(err);
-    }
-  };
+      if (data.status === 'started') {
+        setIsProcessing(true);
+        setError(null);
+        setStreamKey(Date.now()); // Force reload the stream
+      } else if (data.status === 'error') {
+        setError(data.message || 'Failed to start camera');
+      }
+    } catch (err) {
+      setError('Failed to start processing. Please try again.');
+    }
+  };
 
-  // Handle processing errors
-  const handleProcessingError = (err) => {
-    setError(err.message || "Error during brand detection");
-    setIsProcessing(false);
-    setAttempts(prev => prev + 1);
-    console.error("Vision processing error:", err);
-  };
+  const stopProcessing = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/stop`, {
+        method: 'POST',
+      });
+      const data = await response.json();
 
-  // Poll for processed results
-  const pollResults = async () => {
-    try {
-      const response = await fetch(`${backendBaseUrl}/process_vision_results`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      if (data.status === 'stopped') {
+        setIsProcessing(false);
+        setError(null);
+      }
+    } catch (err) {
+      setError('Failed to stop processing. Please try again.');
+    }
+  };
 
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Failed to fetch results");
+  const checkStatus = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/status`);
+      const data = await response.json();
 
-      if (data.status === "processing") {
-        setTimeout(pollResults, 1000);
-      } else if (data.processed_data && data.processed_data.length > 0) {
-        setDetections(data.processed_data);
-        setIsProcessing(false);
-        setAttempts(0);
-      } else {
-        throw new Error("No brands detected. Please try again.");
-      }
-    } catch (err) {
-      handleProcessingError(err);
-    }
-  };
+      setIsProcessing(data.processing);
+      if (data.detected_text) {
+        setDetectedText(data.detected_text);
+        await stopProcessing();
 
-  // Auto-start processing when camera is ready
-  useEffect(() => {
-    if (isStreaming && !isProcessing && attempts < maxAttempts) {
-      startVisionProcessing();
-    }
-  }, [isStreaming, attempts]);
+        // Call process_vision API
+        setLoading(true); // Show loader
+        const processResponse = await fetch("http://localhost:5005/process_vision");
+        const processResult = await processResponse.json();
 
-  // Initialize camera on component mount
-  useEffect(() => {
-    startCamera();
-    return () => {
-      if (videoRef.current && videoRef.current.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach((track) => track.stop());
-      }
-    };
-  }, []);
+        if (processResult.status === "success") {
+          setLoading(false); // Hide loader
+          setShowInfoBox(true); // Open InfoBox
+        } else {
+          setLoading(false);
+          setError("Failed to process vision.");
+        }
+      }
+    } catch (err) {
+      console.error('Error checking status:', err);
+      setError('Error while checking status. Please try again.');
+    }
+  };
 
-  // Retry handler
-  const handleRetry = () => {
-    setAttempts(0);
-    setDetections([]);
-    setError(null);
-    startVisionProcessing();
-  };
+  const handleImageError = () => {
+    if (isProcessing) {
+      setStreamKey(Date.now()); // Retry with a new key
+      setError('Video stream connection lost. Retrying...');
+    }
+  };
 
-  // Function to render brand detection result
-  const renderBrandDetection = (detection) => {
-    return (
-      <div key={detection.index} className="mt-2 p-3 bg-white rounded-lg shadow-sm">
-        {detection.detected_text && (
-          <p className="text-gray-700">
-            Detected Text: <span className="font-medium">{detection.detected_text}</span>
-          </p>
-        )}
-        {detection.completed_text && (
-          <p className="text-green-700 font-medium">
-            Brand: {detection.completed_text}
-          </p>
-        )}
-        <p className="text-sm text-gray-600">
-          Confidence: {(detection.confidence * 100).toFixed(1)}%
-        </p>
-      </div>
-    );
-  };
+  useEffect(() => {
+    let intervalId;
 
-  return (
-    <div className="max-w-2xl mx-auto p-4">
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-        {/* Header */}
-        <div className="p-4 bg-gray-50 border-b flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-900">Brand Scanner</h2>
-          {attempts >= maxAttempts && (
-            <button
-              onClick={handleRetry}
-              className="px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white"
-            >
-              Try Again
-            </button>
-          )}
-        </div>
+    if (isProcessing) {
+      intervalId = setInterval(checkStatus, 1000);
+    }
 
-        {/* Content */}
-        <div className="p-4">
-          <div className="space-y-4">
-            <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                autoPlay
-                playsInline
-              />
-              <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
-              
-              {/* Processing overlay */}
-              {isProcessing && (
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-4 border-white border-t-transparent mx-auto mb-2"></div>
-                    <p>Scanning for brands...</p>
-                    <p className="text-sm mt-2 text-gray-300">Looking for IZZE or Caprisun</p>
-                  </div>
-                </div>
-              )}
-            </div>
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [isProcessing]);
 
-            {/* Status Messages */}
-            {error && (
-              <div className="bg-red-50 text-red-700 p-4 rounded-lg">
-                <p>{error}</p>
-                {attempts >= maxAttempts && (
-                  <p className="mt-2">Maximum attempts reached. Please try again.</p>
-                )}
-              </div>
-            )}
+  return (
+    <main className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Vision Processor
+            </h1>
+            <p className="text-gray-600">
+              Real-time object detection and text extraction
+            </p>
+          </div>
 
-            {/* Detection Results */}
-            {detections.length > 0 && (
-              <div className="bg-green-50 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-green-800">Brand Detected!</h3>
-                <div className="mt-2 space-y-3">
-                  {detections.map(renderBrandDetection)}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+          <div className="mb-8 rounded-lg overflow-hidden border-2 border-gray-200">
+            <div className="aspect-video bg-gray-100 flex items-center justify-center">
+              {isProcessing ? (
+                <img
+                  ref={imgRef}
+                  key={streamKey}
+                  src={`${API_BASE_URL}/video_feed`}
+                  alt="Video Feed"
+                  className="w-full h-full object-contain"
+                  onError={handleImageError}
+                />
+              ) : loading ? (
+                <CircularProgress label="Loading..." />
+              ) : (
+                <Camera className="h-16 w-16 text-gray-400" />
+              )}
+            </div>
+          </div>
 
-export default VideoBox;
+          <div className="flex justify-center gap-4 mb-8">
+            <button
+              onClick={startProcessing}
+              disabled={isProcessing}
+              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium ${
+                isProcessing
+                  ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                  : 'bg-green-600 text-white hover:bg-green-700'
+              }`}
+            >
+              <PlayCircle className="h-5 w-5" />
+              Start Processing
+            </button>
+            <button
+              onClick={stopProcessing}
+              disabled={!isProcessing}
+              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium ${
+                !isProcessing
+                  ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                  : 'bg-red-600 text-white hover:bg-red-700'
+              }`}
+            >
+              <StopCircle className="h-5 w-5" />
+              Stop Processing
+            </button>
+          </div>
+
+          {error && (
+            <div className="mt-4 p-4 bg-red-50 text-red-600 rounded-lg">
+              {error}
+            </div>
+          )}
+
+          {showInfoBox && <InfoBox />}
+        </div>
+      </div>
+    </main>
+  );
+}

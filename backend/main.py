@@ -15,7 +15,7 @@ import sys
 app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
-        "origins": ["http://localhost:3000"],
+        "origins": ["http://localhost:5173"],
         "methods": ["GET", "POST"],
         "allow_headers": ["Content-Type"]
     }
@@ -294,4 +294,4 @@ def get_status():
     })
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5002)
