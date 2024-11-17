@@ -54,7 +54,7 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Health impact assessment
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/1511964c-6f59-42b2-b7f4-3116e959e8c8" alt="Shel-Care" width="400" />
+  <img src="https://github.com/user-attachments/assets/1511964c-6f59-42b2-b7f4-3116e959e8c8" alt="Shel-Care" width="1000" />
 
 ### 2. Personalized Recommendations
 - Priority-based alternative suggestions
@@ -64,7 +64,7 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Price and value comparison
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/994fd8d7-853c-42e8-a788-09184f226484" alt="Shel-Care" width="400" />
+  <img src="https://github.com/user-attachments/assets/994fd8d7-853c-42e8-a788-09184f226484" alt="Shel-Care" width="1000" />
 
 ### 3. Reward System
 - EcoPoints for sustainable choices
@@ -74,7 +74,7 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Social sharing incentives
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/5a1ccd6b-b1ca-4d15-9eac-c5d5c825dfb5" alt="Shel-Care" width="400" />
+  <img src="https://github.com/user-attachments/assets/5a1ccd6b-b1ca-4d15-9eac-c5d5c825dfb5" alt="Shel-Care" width="1000" />
 
 ## Architecture 
 
