@@ -1,0 +1,16 @@
+{
+    "product_name": "Pepsi",
+    "text": "Pepsi",
+    "confidence": 0.98,
+    "timestamp": "2024-11-16T10:30:00Z",
+    "device_info": {
+      "device_id": "camera_001",
+      "resolution": "4032x3024",
+      "format": "jpg"
+    },
+    "image_metadata": {
+      "location": "Product Display",
+      "lighting": "Indoor",
+      "focus_score": 0.95
+    }
+  }

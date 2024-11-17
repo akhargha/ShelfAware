@@ -7,8 +7,17 @@ from supabase import create_client, Client
 from typing import Dict, Any, List
 import re
 from dotenv import load_dotenv
+import json
+from pathlib import Path
 
+from flask import Flask, request, jsonify
+from flask.views import MethodView
+from asgiref.wsgi import WsgiToAsgi
+from hypercorn.config import Config
+from hypercorn.asyncio import serve
+import asyncio
 # Load environment variables
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -18,6 +27,27 @@ PERPLEXITY_API_URL = os.getenv('PERPLEXITY_API_URL')
 PERPLEXITY_API_KEY = f"Bearer {os.getenv('PERPLEXITY_API_KEY')}"
 SUPABASE_URL = os.getenv('SUPABASE_URL')
 SUPABASE_KEY = os.getenv('SUPABASE_KEY')
+
+VISION_PROCESS_PATH = Path("vision_output.json")
+
+def read_vision_process_file() -> str:
+    """Read and parse the vision process JSON file to get product name."""
+    try:
+        if not VISION_PROCESS_PATH.exists():
+            raise FileNotFoundError(f"Vision process file not found at {VISION_PROCESS_PATH}")
+        
+        with open(VISION_PROCESS_PATH, 'r') as file:
+            data = json.load(file)
+            product_name = data.get("product_name")
+            
+            if not product_name:
+                raise ValueError("No product name found in vision process file")
+                
+            return product_name
+    except json.JSONDecodeError as e:
+        raise Exception(f"Invalid JSON in vision process file: {str(e)}")
+    except Exception as e:
+        raise Exception(f"Error reading vision process file: {str(e)}")
 
 # Validate environment variables
 if not all([PERPLEXITY_API_URL, PERPLEXITY_API_KEY, SUPABASE_URL, SUPABASE_KEY]):
@@ -342,7 +372,66 @@ async def delete_all_data() -> Dict[str, Any]:
     except Exception as e:
         print(f"Detailed error: {str(e)}")
         raise Exception(f"Database deletion error: {str(e)}")
+    
 
+class VisionProcessView(MethodView):
+    async def get(self):
+        """
+        Endpoint to process vision data from JSON file and store in database.
+        Expects a JSON file with just the product name.
+        """
+        try:
+            # Read product name from vision process file
+            product_name = read_vision_process_file()
+            print("\nProduct name from vision:", product_name)
+            
+            # Get product information from Perplexity API
+            raw_info = get_raw_product_info(product_name)
+            print("\nRaw API info:", raw_info)
+            
+            # Extract and clean JSON from API response
+            json_data = extract_json_from_text(raw_info)
+            print("\nExtracted JSON:", json_data)
+            
+            # Clean and validate the JSON structure
+            cleaned_data = clean_json_structure(json_data, product_name)
+            print("\nCleaned data:", cleaned_data)
+            
+            # Save to Supabase
+            result = await save_to_supabase(product_name, cleaned_data)
+            print("\nSave result:", result)
+            
+            return jsonify({
+                "status": "success",
+                "message": "Vision data successfully processed and saved",
+                "product_id": result["product_id"],
+                "data": cleaned_data,
+                "product_name": product_name,
+                "timestamp": datetime.utcnow().isoformat()
+            })
+            
+        except FileNotFoundError as e:
+            return jsonify({
+                "status": "error",
+                "error": str(e),
+                "timestamp": datetime.utcnow().isoformat()
+            }), 404
+        except ValueError as e:
+            return jsonify({
+                "status": "error",
+                "error": str(e),
+                "timestamp": datetime.utcnow().isoformat()
+            }), 400
+        except Exception as e:
+            print(f"Error details: {str(e)}")
+            return jsonify({
+                "status": "error",
+                "error": str(e),
+                "timestamp": datetime.utcnow().isoformat()
+            }), 500
+
+# Add this line after the class definition
+app.add_url_rule('/process_vision', view_func=VisionProcessView.as_view('process_vision'))
 @app.route('/fetch_product', methods=['POST'])
 async def fetch_product():
     """Endpoint to fetch and process product information."""
@@ -388,7 +477,7 @@ async def fetch_product():
             "timestamp": datetime.utcnow().isoformat()
         }), 500
 
-@app.route('/delete_all_data', methods=['GET'])
+
 async def delete_all_data_route():
     """
     Endpoint to delete all data from the database.
@@ -493,15 +582,10 @@ def internal_server_error(error):
     }), 500
 
 if __name__ == '__main__':
-    # Set default port
-    port = int(os.getenv('PORT', 5000))
+    config = Config()
+    config.bind = [f"0.0.0.0:{int(os.getenv('PORT', 5000))}"]
+    config.use_reloader = os.getenv('FLASK_ENV', 'production') == 'development'
     
-    # Set debug mode based on environment
-    debug = os.getenv('FLASK_ENV', 'production') == 'development'
+    asgi_app = WsgiToAsgi(app)
+    asyncio.run(serve(asgi_app, config))
     
-    # Run the application
-    app.run(
-        host='0.0.0.0',  # Make the server publicly available
-        port=port,
-        debug=debug
-    )
