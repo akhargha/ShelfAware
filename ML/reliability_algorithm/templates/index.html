@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangChain Sentiment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">LangChain Sentiment Analyzer</h1>
+        <form method="POST" action="/analyze" class="mt-4">
+            <div class="form-group">
+                <label for="urls">Enter URLs (one per line):</label>
+                <textarea class="form-control" id="urls" name="urls" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Analyze</button>
+        </form>
+        {% if error %}
+            <div class="alert alert-danger mt-4">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
