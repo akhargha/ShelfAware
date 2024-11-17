@@ -30,7 +30,7 @@ export default function CompareBox({ isOpen, onClose }) {
   const handleClose = async () => {
     try {
       // Send DELETE request to /delete_all endpoint
-      await fetch("http://localhost:5005/delete_all", { method: "DELETE" });
+      await fetch("http://0.0.0.0:5005/delete_all", { method: "GET" });
       console.log("All data deleted successfully.");
     } catch (error) {
       console.error("Error deleting data:", error);
@@ -165,7 +165,7 @@ export default function CompareBox({ isOpen, onClose }) {
   ];
 
   return (
-    <>
+    <div>
       <ToastContainer />
       <Modal
         isOpen={isOpen}
@@ -243,6 +243,6 @@ export default function CompareBox({ isOpen, onClose }) {
           </>
         </ModalContent>
       </Modal>
-    </>
+      </div>
   );
 }

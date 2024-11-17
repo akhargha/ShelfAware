@@ -1516,3 +1516,97 @@ postgrest.exceptions.APIError: {'code': '22P02', 'details': None, 'hint': None, 
 2024-11-17 05:54:37,665 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117055422727793: Successfully processed
 2024-11-17 05:54:37,666 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
 2024-11-17 05:54:37,666 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '1903'}
+2024-11-17 06:02:07,067 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:02:07,068 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:02:07,078 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:02:07,085 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:02:07,086 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:02:07,428 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:02:07,430 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:02:07,440 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:02:07,447 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:02:07,448 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:15:50,018 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://129.133.74.6:5008/
+2024-11-17 06:15:50,020 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: GET
+2024-11-17 06:15:50,020 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': '129.133.74.6:5008', 'Connection': 'keep-alive', 'Accept-Language': 'en-US,en;q=0.9', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Encoding': 'gzip, deflate'}
+2024-11-17 06:15:50,024 - ProductAnalyzer - ERROR - [urlBot.py:395] - Unhandled error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-11-17 06:15:50,026 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 500 INTERNAL SERVER ERROR
+2024-11-17 06:15:50,026 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '264', 'Access-Control-Allow-Origin': 'http://localhost:5173'}
+2024-11-17 06:15:50,171 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://129.133.74.6:5008/favicon.ico
+2024-11-17 06:15:50,171 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: GET
+2024-11-17 06:15:50,171 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': '129.133.74.6:5008', 'Connection': 'keep-alive', 'Accept-Language': 'en-US,en;q=0.9', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8', 'Referer': 'http://129.133.74.6:5008/', 'Accept-Encoding': 'gzip, deflate'}
+2024-11-17 06:15:50,172 - ProductAnalyzer - ERROR - [urlBot.py:395] - Unhandled error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-11-17 06:15:50,173 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 500 INTERNAL SERVER ERROR
+2024-11-17 06:15:50,173 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '264', 'Access-Control-Allow-Origin': 'http://localhost:5173'}
+2024-11-17 06:20:45,521 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:20:45,523 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:20:45,533 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:20:45,540 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:20:45,540 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:22:24,535 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:22:24,537 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:22:24,547 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:22:24,553 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:22:24,554 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:22:31,245 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:22:31,246 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:22:31,257 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:22:31,263 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:22:31,264 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:22:32,736 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:22:32,737 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:22:32,748 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:22:32,755 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:22:32,756 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:22:34,230 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:22:34,232 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:22:34,242 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:22:34,249 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:22:34,251 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:22:36,742 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:22:36,743 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:22:36,754 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:22:36,760 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:22:36,761 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:22:40,280 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:22:40,282 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:22:40,293 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:22:40,301 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:22:40,302 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:25:02,401 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:25:02,402 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:25:02,412 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:25:02,419 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:25:02,420 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
