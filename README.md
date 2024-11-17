@@ -7,12 +7,21 @@ Another sustainability app? No, we're an app that cares about you, nature, and y
 [![Vite](https://img.shields.io/badge/Vite-5.x-purple.svg)](https://vitejs.dev/)
 [![Python](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Shel-Care" width="500" />
-</p>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Shelf-Care" width="500" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+</div>
 
 > Making conscious choices irresistibly rewarding. Scan products, discover eco-friendly alternatives, and earn while you save the planet.
 
+<div align="center">
+
+[Overview](#-overview) •
+[Features](#-key-features) •
+[Business Model](#-business-model) •
+[Architecture](#-system-architecture) •
+[Team](#-team)
+
+</div>
 
 ## 📑 Table of Contents
 
@@ -53,8 +62,9 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Comprehensive sustainability metrics
 - Health impact assessment
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/1511964c-6f59-42b2-b7f4-3116e959e8c8" alt="Shel-Care" width="1000" />
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/1511964c-6f59-42b2-b7f4-3116e959e8c8" alt="Product Analysis" width="1000" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+</div>
 
 ### 2. Personalized Recommendations
 - Priority-based alternative suggestions
@@ -63,8 +73,9 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Local availability information
 - Price and value comparison
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/994fd8d7-853c-42e8-a788-09184f226484" alt="Shel-Care" width="1000" />
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/994fd8d7-853c-42e8-a788-09184f226484" alt="Recommendations" width="1000" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+</div>
 
 ### 3. Reward System
 - EcoPoints for sustainable choices
@@ -73,41 +84,39 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Achievement badges and tracking
 - Social sharing incentives
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/5a1ccd6b-b1ca-4d15-9eac-c5d5c825dfb5" alt="Shel-Care" width="1000" />
-
-## Architecture 
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Shel-Care" width="400" />
-</p>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/5a1ccd6b-b1ca-4d15-9eac-c5d5c825dfb5" alt="Rewards" width="1000" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+</div>
 
 ## 💼 Business Model
 
-Shelf-Care operates on a multi-sided platform model that creates value for all stakeholders:
+Shelf-Care creates a sustainable ecosystem benefiting all stakeholders:
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/556e4399-9edf-425e-a25d-73a115a6ef19" alt="Model" width="1000" />
-</p>
-
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/556e4399-9edf-425e-a25d-73a115a6ef19" alt="Business Model" width="1000" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+</div>
 
 ## 🏗 System Architecture
 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Architecture" width="400" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+</div>
+
 Our system comprises three main components:
 
-1. **Frontend Layer**
+1. **Frontend Layer** 🎨
    - React + Vite application
    - NextUI component library
    - Responsive design
    - Real-time updates
 
-2. **Backend Services**
+2. **Backend Services** ⚙️
    - Flask REST API
    - Computer Vision Processing
    - OpenAI Integration
    - Authentication & Authorization
 
-3. **Data Layer**
+3. **Data Layer** 💾
    - Supabase Database
    - File Storage
    - Cache Management
@@ -115,32 +124,34 @@ Our system comprises three main components:
 
 ## 💻 Technology Stack
 
+<div align="center">
+
 ### Frontend
-- React 18.x
-- Vite 5.x
-- NextUI
-- TypeScript
+![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react)
+![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=for-the-badge&logo=vite)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.x-3178C6?style=for-the-badge&logo=typescript)
+![NextUI](https://img.shields.io/badge/NextUI-Latest-000000?style=for-the-badge)
 
 ### Backend
-- Python 3.9+
-- Flask
-
-- TensorFlow
-- OpenCV
-- EasyOCR
-- OpenAI GPT-4
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python)
+![Flask](https://img.shields.io/badge/Flask-Latest-000000?style=for-the-badge&logo=flask)
+![OpenCV](https://img.shields.io/badge/OpenCV-Latest-5C3EE8?style=for-the-badge&logo=opencv)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-Latest-FF6F00?style=for-the-badge&logo=tensorflow)
 
 ### Database
-- Supabase
+![Supabase](https://img.shields.io/badge/Supabase-Latest-3ECF8E?style=for-the-badge&logo=supabase)
+
+</div>
 
 ## 👥 Team
 
 <div align="center">
 
-| Anupam | Hyun | Shivanshu |
-|-------|-------|---------|---------|
-| [GitHub](https://github.com/akhargha) | [GitHub](https://github.com/hlucomeister) | [GitHub](https://github.com/shivanshudwivedi)
-| Backend & ML | Frontend | Product & Design | Database & API |
+| <img src="https://github.com/akhargha.png" width="100" style="border-radius: 50%"/> | <img src="https://github.com/hlucomeister.png" width="100" style="border-radius: 50%"/> | <img src="https://github.com/shivanshudwivedi.png" width="100" style="border-radius: 50%"/> |
+|:--:|:--:|:--:|
+| **Anupam** | **Hyun** | **Shivanshu** |
+| [GitHub](https://github.com/akhargha) | [GitHub](https://github.com/hlucomeister) | [GitHub](https://github.com/shivanshudwivedi) |
+| Backend & ML | Frontend | Product & Design |
 
 </div>
 
@@ -151,5 +162,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
+
 Made with 💚 for a sustainable future
+
+[Report Bug](https://github.com/yourusername/shelf-care/issues) • [Request Feature](https://github.com/yourusername/shelf-care/issues) • [Documentation](https://github.com/yourusername/shelf-care/wiki)
+
 </div>
