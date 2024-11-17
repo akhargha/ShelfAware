@@ -77,6 +77,10 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 
 Shelf-Care operates on a multi-sided platform model that creates value for all stakeholders:
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/556e4399-9edf-425e-a25d-73a115a6ef19" alt="Model" width="400" />
+</p>
+
 ### For Consumers 👥
 - Free access to product sustainability information
 - Real savings through informed choices
