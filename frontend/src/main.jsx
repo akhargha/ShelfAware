@@ -14,9 +14,9 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
     <NextUIProvider>
-    
+    <main className="dark text-foreground bg-background">
     <App />
-    
+    </main>
     </NextUIProvider>
     </BrowserRouter>
   </StrictMode>,

@@ -120,20 +120,17 @@ export default function Home() {
   }, [isProcessing]);
 
   return (
-    <main className="min-h-screen bg-gray-50 py-8">
+    <main className="min-h-screen bg-gray-900 text-gray-200 py-8">
       <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-gray-800 rounded-lg shadow-md p-6">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Vision Processor
+            <h1 className="text-xl font-bold text-white mb-2">
+              Item Detector
             </h1>
-            <p className="text-gray-600">
-              Real-time object detection and text extraction
-            </p>
           </div>
 
-          <div className="mb-8 rounded-lg overflow-hidden border-2 border-gray-200">
-            <div className="aspect-video bg-gray-100 flex items-center justify-center">
+          <div className="mb-8 rounded-lg overflow-hidden border-2 border-gray-700">
+            <div className="aspect-video bg-gray-700 flex items-center justify-center">
               {isProcessing ? (
                 <img
                   ref={imgRef}
@@ -145,7 +142,7 @@ export default function Home() {
               ) : loading ? (
                 <CircularProgress label="Loading..." />
               ) : (
-                <Camera className="h-16 w-16 text-gray-400" />
+                <Camera className="h-16 w-16 text-gray-500" />
               )}
             </div>
           </div>
@@ -156,7 +153,7 @@ export default function Home() {
               disabled={isProcessing}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium ${
                 isProcessing
-                  ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                  ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
                   : 'bg-green-600 text-white hover:bg-green-700'
               }`}
             >
@@ -168,7 +165,7 @@ export default function Home() {
               disabled={!isProcessing}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium ${
                 !isProcessing
-                  ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                  ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
                   : 'bg-red-600 text-white hover:bg-red-700'
               }`}
             >
@@ -183,14 +180,14 @@ export default function Home() {
               value={searchUrl}
               onChange={(e) => setSearchUrl(e.target.value)}
               placeholder="Enter URL to analyze"
-              className="flex-1 px-4 py-2 border rounded-lg"
+              className="flex-1 px-4 py-2 bg-gray-700 text-gray-200 border border-gray-600 rounded-lg"
             />
             <button
               onClick={handleSearch}
               disabled={loading || !searchUrl}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium ${
                 loading || !searchUrl
-                  ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                  ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
                   : 'bg-blue-600 text-white hover:bg-blue-700'
               }`}
             >
@@ -200,7 +197,7 @@ export default function Home() {
           </div>
 
           {error && (
-            <div className="mt-4 p-4 bg-red-50 text-red-600 rounded-lg">
+            <div className="mt-4 p-4 bg-red-700 text-gray-200 rounded-lg">
               {error}
             </div>
           )}

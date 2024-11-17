@@ -56,64 +56,79 @@ const Settings = () => {
   };
 
   return (
-    <div>
-          <TopBar />
-    <div style={{ maxWidth: "400px", margin: "0 auto", textAlign: "center", marginTop: "40px" }}>
-      <h1>Rank Your Priorities</h1>
-      <ul
+    <div
+      style={{
+        backgroundColor: "#121212",
+        color: "#FFFFFF",
+        minHeight: "100vh",
+        padding: "20px",
+      }}
+    >
+      <TopBar />
+      <div
         style={{
-          listStyle: "none",
-          padding: 0,
+          maxWidth: "400px",
           margin: "0 auto",
-          textAlign: "left",
+          textAlign: "center",
+          marginTop: "40px",
         }}
       >
-        {priorities.map((priority, index) => (
-          <li
-            key={index}
-            draggable
-            onDragStart={() => handleDragStart(index)}
-            onDragOver={handleDragOver}
-            onDrop={() => handleDrop(index)}
-            style={{
-              padding: "10px",
-              margin: "5px 0",
-              backgroundColor: "#f4f4f4",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-              cursor: "grab",
-            }}
-          >
-            {priority}
-          </li>
-        ))}
-      </ul>
-      <button
-        onClick={handleSave}
-        style={{
-          marginTop: "10px",
-          padding: "10px 20px",
-          backgroundColor: isSaving ? "#6c757d" : "#007BFF",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: isSaving ? "not-allowed" : "pointer",
-        }}
-        disabled={isSaving}
-      >
-        {isSaving ? "Saving..." : "Save Rankings"}
-      </button>
-      {savedRankings && (
-        <div style={{ marginTop: "20px" }}>
-          <h2>Saved Rankings:</h2>
-          <ol>
-            {savedRankings.map((rank, index) => (
-              <li key={index}>{rank}</li>
-            ))}
-          </ol>
-        </div>
-      )}
-    </div>
+        <h1>Rank Your Priorities</h1>
+        <ul
+          style={{
+            listStyle: "none",
+            padding: 0,
+            margin: "0 auto",
+            textAlign: "left",
+          }}
+        >
+          {priorities.map((priority, index) => (
+            <li
+              key={index}
+              draggable
+              onDragStart={() => handleDragStart(index)}
+              onDragOver={handleDragOver}
+              onDrop={() => handleDrop(index)}
+              style={{
+                padding: "10px",
+                margin: "5px 0",
+                backgroundColor: "#1E1E1E",
+                borderRadius: "5px",
+                border: "1px solid #444",
+                cursor: "grab",
+                color: "#FFFFFF", // White font color for priorities
+              }}
+            >
+              {priority}
+            </li>
+          ))}
+        </ul>
+        <button
+          onClick={handleSave}
+          style={{
+            marginTop: "10px",
+            padding: "10px 20px",
+            backgroundColor: isSaving ? "#6c757d" : "#007BFF",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            cursor: isSaving ? "not-allowed" : "pointer",
+          }}
+          disabled={isSaving}
+        >
+          {isSaving ? "Saving..." : "Save Rankings"}
+        </button>
+        {savedRankings && (
+          <div style={{ marginTop: "20px" }}>
+            <h2>Saved Rankings:</h2>
+            <ol>
+              {savedRankings.map((rank, index) => (
+                <li key={index}>{rank}</li>
+              ))}
+            </ol>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

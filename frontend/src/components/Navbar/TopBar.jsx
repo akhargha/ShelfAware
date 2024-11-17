@@ -49,7 +49,7 @@ export default function TopBar() {
   return (
     <Navbar isBordered>
       <NavbarBrand>
-        <p className="font-bold text-inherit">Shelf Aware</p>
+        <p className="font-bold text-inherit">🍃 Shelf Aware</p>
       </NavbarBrand>
 
       <NavbarContent className="hidden sm:flex gap-10" justify="center">

@@ -71,44 +71,68 @@ export default function InfoBox({ isOpen, onOpenChange }) {
       isKeyboardDismissDisabled={true}
       scrollBehavior="inside"
     >
-      <ModalContent>
+      <ModalContent
+        style={{
+          backgroundColor: "#1A1A1A",
+          color: "#E0E0E0",
+          border: "1px solid #333",
+        }}
+      >
         {(onClose) => (
           <>
-            <ModalHeader className="flex flex-col gap-1">
+            <ModalHeader
+              className="flex flex-col gap-1"
+              style={{ color: "#FFFFFF" }}
+            >
               {productData.product_name.length > 30
                 ? `${productData.product_name.substring(0, 30)}...`
                 : productData.product_name}
             </ModalHeader>
             <ModalBody>
-              <h4 style={{ fontWeight: "600", marginBottom: "8px" }}>💰 Cost</h4>
-              <p style={{ marginBottom: "-10px" }}>${productData.price.toFixed(2)}</p>
+              <h4 style={{ fontWeight: "600", marginBottom: "8px", color: "#FFFFFF" }}>
+                💰 Cost
+              </h4>
+              <p style={{ marginBottom: "-10px", color: "#B0B0B0" }}>
+                ${productData.price.toFixed(2)}
+              </p>
 
-              <Divider className="my-4" />
+              <Divider className="my-4" style={{ backgroundColor: "#444" }} />
 
-              <h2 style={{ fontWeight: "600", marginBottom: "8px" }}>🏥 Health Information</h2>
+              <h2 style={{ fontWeight: "600", marginBottom: "8px", color: "#FFFFFF" }}>
+                🏥 Health Information
+              </h2>
               <div style={{ marginBottom: "16px" }}>
                 {productData.health_nutrients &&
-                  Object.entries(JSON.parse(productData.health_nutrients)).map(([key, value]) => (
-                    <Chip key={key} style={{ margin: "3px" }}>
-                      {key}: {value}
-                    </Chip>
-                  ))}
+                  Object.entries(JSON.parse(productData.health_nutrients)).map(
+                    ([key, value]) => (
+                      <Chip
+                        key={key}
+                        style={{
+                          margin: "3px",
+                          backgroundColor: "#2A2A2A",
+                          color: "#E0E0E0",
+                        }}
+                      >
+                        {key}: {value}
+                      </Chip>
+                    )
+                  )}
               </div>
-              <p>
+              <p style={{ color: "#B0B0B0" }}>
                 <strong>Ingredients:</strong>{" "}
                 {productData.health_ingredients &&
                   JSON.parse(productData.health_ingredients).join(", ")}
               </p>
-              <p style={{ marginBottom: "-10px" }}>
+              <p style={{ marginBottom: "-10px", color: "#B0B0B0" }}>
                 <strong>Health Index:</strong> {productData.health_index} / 5.0
               </p>
 
-              <Divider className="my-4" />
+              <Divider className="my-4" style={{ backgroundColor: "#444" }} />
 
-              <h4 style={{ fontWeight: "600", marginBottom: "8px" }}>
+              <h4 style={{ fontWeight: "600", marginBottom: "8px", color: "#FFFFFF" }}>
                 🌱 Sustainability Information
               </h4>
-              <p>
+              <p style={{ color: "#B0B0B0" }}>
                 <strong>Biodegradable:</strong>{" "}
                 <Chip
                   color={
@@ -118,37 +142,60 @@ export default function InfoBox({ isOpen, onOpenChange }) {
                       ? "danger"
                       : "success"
                   }
+                  style={{
+                    backgroundColor:
+                      productData.sustainability_biodegradable?.toLowerCase() ===
+                      "no"
+                        ? "#D32F2F"
+                        : "#388E3C",
+                    color: "#E0E0E0",
+                  }}
                 >
                   {productData.sustainability_biodegradable}
                 </Chip>
               </p>
-              <p>
+              <p style={{ color: "#B0B0B0" }}>
                 <strong>Recyclable:</strong>{" "}
                 <Chip
                   color={
                     productData.sustainability_recyclable &&
-                    productData.sustainability_recyclable.toLowerCase() ===
-                      "no"
+                    productData.sustainability_recyclable.toLowerCase() === "no"
                       ? "danger"
                       : "success"
                   }
+                  style={{
+                    backgroundColor:
+                      productData.sustainability_recyclable?.toLowerCase() === "no"
+                        ? "#D32F2F"
+                        : "#388E3C",
+                    color: "#E0E0E0",
+                  }}
                 >
                   {productData.sustainability_recyclable}
                 </Chip>
               </p>
-              <p>
+              <p style={{ color: "#B0B0B0" }}>
                 <strong>Sustainability Rating:</strong>{" "}
                 {productData.sustainability_rating} / 5.0
               </p>
-              <p>
+              <p style={{ color: "#B0B0B0" }}>
                 <strong>Dustbin Color:</strong> {productData.dustbin_color}
               </p>
             </ModalBody>
             <ModalFooter>
-              <Button color="danger" variant="light" onPress={onClose}>
+              <Button
+                color="danger"
+                variant="light"
+                onPress={onClose}
+                style={{ backgroundColor: "#2A2A2A", color: "#E57373" }}
+              >
                 Close
               </Button>
-              <Button color="primary" onPress={handleGetAlternatives}>
+              <Button
+                color="primary"
+                onPress={handleGetAlternatives}
+                style={{ backgroundColor: "#1E88E5", color: "#E0E0E0" }}
+              >
                 Get Alternatives
               </Button>
             </ModalFooter>
