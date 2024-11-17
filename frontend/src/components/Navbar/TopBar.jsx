@@ -54,7 +54,7 @@ export default function TopBar() {
 
       <NavbarContent className="hidden sm:flex gap-10" justify="center">
         <NavbarItem>
-          <Link color="foreground" as={RouterLink} to="/">
+          <Link color="foreground" as={RouterLink} to="/scan-products">
             Scan Product
           </Link>
         </NavbarItem>

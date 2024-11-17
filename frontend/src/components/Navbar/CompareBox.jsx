@@ -7,6 +7,12 @@ import {
   ModalFooter,
   Button,
   Chip,
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
 } from "@nextui-org/react";
 import { createClient } from "@supabase/supabase-js";
 import { toast, ToastContainer } from "react-toastify";
@@ -39,19 +45,23 @@ export default function CompareBox({ isOpen, onClose }) {
         }
 
         // Fetch product alternatives
-        const { data: alternativeData, error: alternativeError } = await supabase
-          .from("product_alternatives")
-          .select("*");
+        const { data: alternativeData, error: alternativeError } =
+          await supabase.from("product_alternatives").select("*");
 
         if (alternativeError) {
-          console.error("Error fetching product alternatives:", alternativeError);
+          console.error(
+            "Error fetching product alternatives:",
+            alternativeError
+          );
         } else {
           setAlternatives(alternativeData);
 
           // Determine the product with the highest sustainability score
           const allProducts = [productData, ...alternativeData];
           const maxProduct = allProducts.reduce((prev, curr) =>
-            curr.sustainability_rating > prev.sustainability_rating ? curr : prev
+            curr.sustainability_rating > prev.sustainability_rating
+              ? curr
+              : prev
           );
           setMaxSustainability(maxProduct);
         }
@@ -104,6 +114,44 @@ export default function CompareBox({ isOpen, onClose }) {
     return <div>Loading...</div>;
   }
 
+  const allProducts = [
+    { ...product, name: product.product_name },
+    ...alternatives.map((alt) => ({ ...alt, name: alt.alternative_name })),
+  ];
+
+  const features = [
+    {
+      key: "price",
+      label: "💰 Price",
+      render: (item) => `$${item.price.toFixed(2)}`,
+    },
+    {
+      key: "health_index",
+      label: "🏥 Health Index",
+      render: (item) => `${item.health_index} / 5.0`,
+    },
+    {
+      key: "sustainability_rating",
+      label: "🌱 Sustainability Rating",
+      render: (item) => `${item.sustainability_rating} / 5.0`,
+    },
+    {
+      key: "reliability_index",
+      label: "⚙️ Reliability Rating",
+      render: (item) => `${item.reliability_index} / 5.0`,
+    },
+    {
+      key: "biodegradable",
+      label: "♻️ Biodegradable",
+      render: (item) => item.sustainability_biodegradable,
+    },
+    {
+      key: "recyclable",
+      label: "♻️ Recyclable",
+      render: (item) => item.sustainability_recyclable,
+    },
+  ];
+
   return (
     <>
       <ToastContainer />
@@ -117,157 +165,63 @@ export default function CompareBox({ isOpen, onClose }) {
       >
         <ModalContent>
           <>
-            <ModalHeader className="flex flex-col gap-1">Compare Alternatives</ModalHeader>
+            <ModalHeader className="flex flex-col gap-1">
+              Compare Alternatives
+            </ModalHeader>
             <ModalBody>
-              <div style={{ overflowX: "auto" }}>
-                <table
-                  style={{
-                    width: "100%",
-                    borderCollapse: "collapse",
-                    textAlign: "left",
-                  }}
-                >
-                  <thead>
-                    <tr>
-                      <th
-                        style={{
-                          padding: "12px",
-                          fontWeight: "bold",
-                          borderBottom: "2px solid #ccc",
-                        }}
-                      >
-                        Feature
-                      </th>
-                      <th
-                        style={{
-                          padding: "12px",
-                          fontWeight: "bold",
-                          borderBottom: "2px solid #ccc",
-                          paddingLeft: "55px",
-                        }}
-                      >
-                        {product.product_name}
-                      </th>
-                      {alternatives.map((alt, index) => (
-                        <th
-                          key={index}
-                          style={{
-                            padding: "12px",
-                            fontWeight: "bold",
-                            borderBottom: "2px solid #ccc",
-                            paddingLeft: "40px",
-                          }}
-                        >
-                          {alt.id === maxSustainability?.id ? (
-                            <Chip
-                              color="warning"
-                              variant="shadow"
-                              size="md"
-                              style={{ fontWeight: "bold" }}
-                            >
-                              {alt.alternative_name} *
-                            </Chip>
-                          ) : (
-                            alt.alternative_name
-                          )}
-                        </th>
+              <Table aria-label="Comparison Table">
+                <TableHeader>
+                  <TableColumn>Feature</TableColumn>
+                  {allProducts.map((item, index) => (
+                    <TableColumn key={index}>
+                      {item.id === maxSustainability?.id ? (
+                        <Chip color="warning" variant="shadow" size="md">
+                          {item.name} *
+                        </Chip>
+                      ) : (
+                        item.name
+                      )}
+                    </TableColumn>
+                  ))}
+                </TableHeader>
+                <TableBody>
+                  {features.map((feature, featureIndex) => (
+                    <TableRow key={featureIndex}>
+                      <TableCell>{feature.label}</TableCell>
+                      {allProducts.map((item, productIndex) => (
+                        <TableCell key={productIndex}>
+                          {feature.render(item)}
+                        </TableCell>
                       ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      {
-                        label: "💰 Price",
-                        value: (item) => `$${item.price.toFixed(2)}`,
-                      },
-                      {
-                        label: "🏥 Health Index",
-                        value: (item) => `${item.health_index} / 5.0`,
-                      },
-                      {
-                        label: "🌱 Sustainability Rating",
-                        value: (item) => `${item.sustainability_rating} / 5.0`,
-                      },
-                      {
-                        label: "⚙️ Reliability Rating",
-                        value: (item) => `${item.reliability_index} / 5.0`,
-                      },
-                      {
-                        label: "♻️ Biodegradable",
-                        value: (item) => item.sustainability_biodegradable,
-                      },
-                      {
-                        label: "♻️ Recyclable",
-                        value: (item) => item.sustainability_recyclable,
-                      },
-                      {
-                        label: "",
-                        value: (item) => (
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Button
-                              size="sm"
-                              color="primary"
-                              onPress={() => handleBuyClick(item)}
-                            >
-                              Buy
-                            </Button>
-                          </div>
-                        ),
-                      },
-                    ].map((feature, rowIndex) => (
-                      <tr key={rowIndex}>
-                        <td
-                          style={{
-                            padding: "12px",
-                            fontWeight: "bold",
-                            borderBottom: "1px solid #eee",
-                          }}
+                    </TableRow>
+                  ))}
+                  <TableRow>
+                    <TableCell></TableCell>
+                    {allProducts.map((item, index) => (
+                      <TableCell key={index}>
+                        <Button
+                          size="sm"
+                          color="primary"
+                          onPress={() => handleBuyClick(item)}
                         >
-                          {feature.label}
-                        </td>
-                        <td
-                          style={{
-                            padding: "12px",
-                            borderBottom: "1px solid #eee",
-                            textAlign: "center",
-                          }}
-                        >
-                          {feature.value(product)}
-                        </td>
-                        {alternatives.map((alt, colIndex) => (
-                          <td
-                            key={colIndex}
-                            style={{
-                              padding: "12px",
-                              borderBottom: "1px solid #eee",
-                              textAlign: "center",
-                            }}
-                          >
-                            {feature.value(alt)}
-                          </td>
-                        ))}
-                      </tr>
+                          Buy
+                        </Button>
+                      </TableCell>
                     ))}
-                  </tbody>
-                </table>
-              </div>
+                  </TableRow>
+                </TableBody>
+              </Table>
             </ModalBody>
             <ModalFooter>
               <div
                 style={{
-                  width: "100%",
                   display: "flex",
                   justifyContent: "space-between",
+                  width: "100%",
                 }}
               >
                 <span style={{ fontSize: "12px", fontStyle: "italic" }}>
-                  * sustainabily sponsored
+                  * Sustainably sponsored
                 </span>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close

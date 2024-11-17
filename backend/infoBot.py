@@ -728,7 +728,7 @@ def internal_server_error(error):
 
 if __name__ == '__main__':
     # Set default port
-    port = int(os.getenv('PORT', 5000))
+    port = int(os.getenv('PORT', 5003))
     
     # Set debug mode based on environment
     debug = os.getenv('FLASK_ENV', 'production') == 'development'
