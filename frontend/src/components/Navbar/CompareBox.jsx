@@ -29,9 +29,20 @@ export default function CompareBox({ isOpen, onClose }) {
 
   const handleClose = async () => {
     try {
-      // Send DELETE request to /delete_all endpoint
-      await fetch("http://0.0.0.0:5005/delete_all", { method: "GET" });
-      console.log("All data deleted successfully.");
+      // Send DELETE request to /delete_all endpoint with Authorization header
+      const response = await fetch("http://localhost:5005/delete_all", {
+        method: "DELETE",
+        headers: {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qdGxyZHd5c2FjcGRsc3pmbm11Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE3NzgzNDUsImV4cCI6MjA0NzM1NDM0NX0.1WTlkiApXe846IMbAYNq9Z3zPp5fXl36-dl63dbtTog"
+        }
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} ${response.statusText}`);
+      }
+  
+      const data = await response.json();
+      console.log("Response data:", data);
     } catch (error) {
       console.error("Error deleting data:", error);
     } finally {

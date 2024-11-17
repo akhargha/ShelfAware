@@ -1610,3 +1610,227 @@ werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on 
 2024-11-17 06:25:02,412 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
 2024-11-17 06:25:02,419 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
 2024-11-17 06:25:02,420 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:55:41,744 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:55:41,746 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:55:41,756 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:55:41,762 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:55:41,763 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 06:55:42,071 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 06:55:42,072 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 06:55:42,083 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 06:55:42,089 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 06:55:42,090 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 07:00:36,909 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 07:00:36,910 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 07:00:36,921 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 07:00:36,927 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 07:00:36,928 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 07:00:37,262 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 07:00:37,263 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 07:00:37,274 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 07:00:37,280 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 07:00:37,281 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 07:02:31,980 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 07:02:31,982 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 07:02:31,992 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 07:02:31,999 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 07:02:32,000 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 07:02:32,326 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 07:02:32,327 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 07:02:32,337 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 07:02:32,343 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 07:02:32,344 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 07:04:55,703 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 07:04:55,705 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 07:04:55,716 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 07:04:55,722 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 07:04:55,723 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 07:04:56,060 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 07:04:56,061 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 07:04:56,072 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 07:04:56,078 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 07:04:56,079 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 07:06:09,376 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 07:06:09,377 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 07:06:09,387 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 07:06:09,393 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 07:06:09,394 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 07:06:09,707 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 07:06:09,709 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 07:06:09,719 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 07:06:09,725 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 07:06:09,726 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 07:07:12,408 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5008/analyze_url
+2024-11-17 07:07:12,410 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 07:07:12,410 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5008', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 07:07:12,412 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 07:07:12,412 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'POST, OPTIONS'}
+2024-11-17 07:07:12,417 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5008/analyze_url
+2024-11-17 07:07:12,418 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 07:07:12,418 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5008', 'Connection': 'keep-alive', 'Content-Length': '512', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 07:07:12,418 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Portable-Washing-Machine-Compact-Apartments/dp/B08RRTPJX2/ref=sr_1_14?crid=14XKRC5OOOMXI&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKiKrpejg4fQyhdXw-5Lm3vooM1p7Bi2tJEFeMlJWsWJmyonSVVfLF3wAUX25FiWD_X-B-gHuXlluOSR91fKGAgDnATVEXMVrxs1Fmv9rNc5K60eyP33aTPR_BMDln4It3qS1AfJxSfRuo-4YTuhqnjRp08i8EJrBihw5stATdRHgg2FuKzsFTNZEZFZbfM1Dak.EC-_0OFsOBnN68Ilv_6tFE2_W2JXnd2SnU89EiK9iZM&dib_tag=se&keywords=washing+machine&qid=1731845220&sprefix=washing+machin%2Caps%2C138&sr=8-14"}
+2024-11-17 07:07:12,423 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117070712423441
+2024-11-17 07:07:12,423 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117070712423441: Analyzing URL: https://www.amazon.com/Portable-Washing-Machine-Compact-Apartments/dp/B08RRTPJX2/ref=sr_1_14?crid=14XKRC5OOOMXI&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKiKrpejg4fQyhdXw-5Lm3vooM1p7Bi2tJEFeMlJWsWJmyonSVVfLF3wAUX25FiWD_X-B-gHuXlluOSR91fKGAgDnATVEXMVrxs1Fmv9rNc5K60eyP33aTPR_BMDln4It3qS1AfJxSfRuo-4YTuhqnjRp08i8EJrBihw5stATdRHgg2FuKzsFTNZEZFZbfM1Dak.EC-_0OFsOBnN68Ilv_6tFE2_W2JXnd2SnU89EiK9iZM&dib_tag=se&keywords=washing+machine&qid=1731845220&sprefix=washing+machin%2Caps%2C138&sr=8-14
+2024-11-17 07:07:12,423 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 07:07:12,424 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117070712423441: Starting OpenAI analysis
+2024-11-17 07:07:12,424 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Portable-Washing-Machine-Compact-Apartments/dp/B08RRTPJX2/ref=sr_1_14?crid=14XKRC5OOOMXI&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKiKrpejg4fQyhdXw-5Lm3vooM1p7Bi2tJEFeMlJWsWJmyonSVVfLF3wAUX25FiWD_X-B-gHuXlluOSR91fKGAgDnATVEXMVrxs1Fmv9rNc5K60eyP33aTPR_BMDln4It3qS1AfJxSfRuo-4YTuhqnjRp08i8EJrBihw5stATdRHgg2FuKzsFTNZEZFZbfM1Dak.EC-_0OFsOBnN68Ilv_6tFE2_W2JXnd2SnU89EiK9iZM&dib_tag=se&keywords=washing+machine&qid=1731845220&sprefix=washing+machin%2Caps%2C138&sr=8-14
+2024-11-17 07:07:26,299 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "Portable Washing Machine Compact",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.5
+  },
+  "Price": 219.99,
+  "Reliability_index": 4.0,
+  "Color_of_the_dustbin": "black",
+  "Alternatives": [
+    {
+      "Name": "Giantex Portable Mini Compact Twin Tub Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.8
+      },
+      "Price": 189.99,
+      "Reliability_index": 4.2
+    },
+    {
+      "Name": "SUPER DEAL Portable Compact Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.6
+      },
+      "Price": 109.89,
+      "Reliability_index": 4.0
+    },
+    {
+      "Name": "COSTWAY Mini Washing Machine with Spin Dryer",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.7
+      },
+      "Price": 99.99,
+      "Reliability_index": 4.1
+    }
+  ]
+}
+2024-11-17 07:07:26,300 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117070712423441: OpenAI analysis completed
+2024-11-17 07:07:26,300 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117070712423441: Validating data
+2024-11-17 07:07:26,300 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117070712423441: Validation completed
+2024-11-17 07:07:26,300 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117070712423441: Saving to Supabase
+2024-11-17 07:07:26,300 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: Portable Washing Machine Compact
+2024-11-17 07:07:26,604 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: 7a998ba0-599a-4e2d-bd19-97dae53b577d
+2024-11-17 07:07:26,604 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117070712423441: Save completed
+2024-11-17 07:07:26,606 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117070712423441: Successfully processed
+2024-11-17 07:07:26,608 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 07:07:26,609 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '1928'}
+2024-11-17 07:10:57,414 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5008/analyze_url
+2024-11-17 07:10:57,415 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 07:10:57,415 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5008', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 07:10:57,415 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 07:10:57,416 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'POST, OPTIONS'}
+2024-11-17 07:10:57,418 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5008/analyze_url
+2024-11-17 07:10:57,418 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 07:10:57,418 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5008', 'Connection': 'keep-alive', 'Content-Length': '608', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 07:10:57,419 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Legendary-Whitetails-Dakota-Jacket-Tobacco/dp/B07GXVCBZL/ref=sr_1_2_sspa?crid=3PLPJL5MJPZU4&dib=eyJ2IjoiMSJ9.TiTgc-cbOPMssjKCILq2p4PZxJLPbQCkZ2hG4TfHr3coDeaqWGheUZ_iF5966TRTov-hDi2vPc2xmQCmfew_MwiVwqJTqHQMfGImxluFi9WgEJ6-JQzIDjor27eWNchfiJ34iC5vh6KMKCKmoOu2PF84SL4Dx1XALnThf_7d-kgL93XzQkx6_HBbYJTndzh2fLHZLuOAd0FZYXx_c2emi5fjvTs1P6fc009H93ruTdn54RvxshWjfoKerRUacHeePghFRFAtv1qAT8LtwEnX6vPyfdr9aB1z94GNE0fFqLw.mOddHN0vSC99hqiBysfXOuBSBgRK-zpiHuMNKLyDcWM&dib_tag=se&keywords=jacket&qid=1731845447&sprefix=jacke%2Caps%2C145&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1"}
+2024-11-17 07:10:57,420 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117071057419978
+2024-11-17 07:10:57,420 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117071057419978: Analyzing URL: https://www.amazon.com/Legendary-Whitetails-Dakota-Jacket-Tobacco/dp/B07GXVCBZL/ref=sr_1_2_sspa?crid=3PLPJL5MJPZU4&dib=eyJ2IjoiMSJ9.TiTgc-cbOPMssjKCILq2p4PZxJLPbQCkZ2hG4TfHr3coDeaqWGheUZ_iF5966TRTov-hDi2vPc2xmQCmfew_MwiVwqJTqHQMfGImxluFi9WgEJ6-JQzIDjor27eWNchfiJ34iC5vh6KMKCKmoOu2PF84SL4Dx1XALnThf_7d-kgL93XzQkx6_HBbYJTndzh2fLHZLuOAd0FZYXx_c2emi5fjvTs1P6fc009H93ruTdn54RvxshWjfoKerRUacHeePghFRFAtv1qAT8LtwEnX6vPyfdr9aB1z94GNE0fFqLw.mOddHN0vSC99hqiBysfXOuBSBgRK-zpiHuMNKLyDcWM&dib_tag=se&keywords=jacket&qid=1731845447&sprefix=jacke%2Caps%2C145&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1
+2024-11-17 07:10:57,420 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 07:10:57,420 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117071057419978: Starting OpenAI analysis
+2024-11-17 07:10:57,420 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Legendary-Whitetails-Dakota-Jacket-Tobacco/dp/B07GXVCBZL/ref=sr_1_2_sspa?crid=3PLPJL5MJPZU4&dib=eyJ2IjoiMSJ9.TiTgc-cbOPMssjKCILq2p4PZxJLPbQCkZ2hG4TfHr3coDeaqWGheUZ_iF5966TRTov-hDi2vPc2xmQCmfew_MwiVwqJTqHQMfGImxluFi9WgEJ6-JQzIDjor27eWNchfiJ34iC5vh6KMKCKmoOu2PF84SL4Dx1XALnThf_7d-kgL93XzQkx6_HBbYJTndzh2fLHZLuOAd0FZYXx_c2emi5fjvTs1P6fc009H93ruTdn54RvxshWjfoKerRUacHeePghFRFAtv1qAT8LtwEnX6vPyfdr9aB1z94GNE0fFqLw.mOddHN0vSC99hqiBysfXOuBSBgRK-zpiHuMNKLyDcWM&dib_tag=se&keywords=jacket&qid=1731845447&sprefix=jacke%2Caps%2C145&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1
+2024-11-17 07:11:09,524 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "Legendary Whitetails Men's Dakota Jacket",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "No",
+    "Sustainability_rating": 2.0
+  },
+  "Price": 99.99,
+  "Reliability_index": 4.0,
+  "Color_of_the_dustbin": "black",
+  "Alternatives": [
+    {
+      "Name": "Carhartt Men's Quilted Flannel Lined Duck Active Jacket",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "No",
+        "Sustainability_rating": 2.5
+      },
+      "Price": 109.99,
+      "Reliability_index": 4.5
+    },
+    {
+      "Name": "Columbia Men's Watertight II Jacket",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.0
+      },
+      "Price": 59.99,
+      "Reliability_index": 4.0
+    },
+    {
+      "Name": "Patagonia Men's Nano Puff Jacket",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 4.0
+      },
+      "Price": 199.0,
+      "Reliability_index": 4.5
+    }
+  ]
+}
+2024-11-17 07:11:09,524 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117071057419978: OpenAI analysis completed
+2024-11-17 07:11:09,525 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117071057419978: Validating data
+2024-11-17 07:11:09,525 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117071057419978: Validation completed
+2024-11-17 07:11:09,525 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117071057419978: Saving to Supabase
+2024-11-17 07:11:09,525 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: Legendary Whitetails Men's Dakota Jacket
+2024-11-17 07:11:09,836 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: 56b7f4b7-b4aa-4ae6-9520-dd316ae63419
+2024-11-17 07:11:09,836 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117071057419978: Save completed
+2024-11-17 07:11:09,837 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117071057419978: Successfully processed
+2024-11-17 07:11:09,838 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 07:11:09,838 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '1913'}
