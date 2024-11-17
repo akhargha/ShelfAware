@@ -1,4 +1,4 @@
-# 🌱 Shelf-Care
+# 🌱 Shelf-Aware
 
 ## Another sustainability app? No, we're an app that cares about you, nature, and your wallet.
 
