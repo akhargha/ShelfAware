@@ -585,7 +585,7 @@ def internal_server_error(error):
 
 if __name__ == '__main__':
     config = Config()
-    config.bind = [f"0.0.0.0:{int(os.getenv('PORT', 5000))}"]
+    config.bind = [f"0.0.0.0:{int(os.getenv('PORT', 5005))}"]
     config.use_reloader = os.getenv('FLASK_ENV', 'production') == 'development'
     
     asgi_app = WsgiToAsgi(app)
