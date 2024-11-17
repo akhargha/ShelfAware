@@ -8,7 +8,7 @@ Another sustainability app? No, we're an app that cares about you, nature, and y
 [![Python](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Shelf-Care" width="500" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Shelf-Care" width="500" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
 </div>
 
 > Making conscious choices irresistibly rewarding. Scan products, discover eco-friendly alternatives, and earn while you save the planet.
@@ -63,7 +63,7 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Health impact assessment
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/1511964c-6f59-42b2-b7f4-3116e959e8c8" alt="Product Analysis" width="1000" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+  <img src="https://github.com/user-attachments/assets/1511964c-6f59-42b2-b7f4-3116e959e8c8" alt="Product Analysis" width="1000" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
 </div>
 
 ### 2. Personalized Recommendations
@@ -74,7 +74,7 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Price and value comparison
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/994fd8d7-853c-42e8-a788-09184f226484" alt="Recommendations" width="1000" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+  <img src="https://github.com/user-attachments/assets/994fd8d7-853c-42e8-a788-09184f226484" alt="Recommendations" width="1000" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
 </div>
 
 ### 3. Reward System
@@ -85,7 +85,7 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Social sharing incentives
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/5a1ccd6b-b1ca-4d15-9eac-c5d5c825dfb5" alt="Rewards" width="1000" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+  <img src="https://github.com/user-attachments/assets/5a1ccd6b-b1ca-4d15-9eac-c5d5c825dfb5" alt="Rewards" width="1000" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
 </div>
 
 ## 💼 Business Model
@@ -93,13 +93,13 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 Shelf-Care creates a sustainable ecosystem benefiting all stakeholders:
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/556e4399-9edf-425e-a25d-73a115a6ef19" alt="Business Model" width="1000" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+  <img src="https://github.com/user-attachments/assets/556e4399-9edf-425e-a25d-73a115a6ef19" alt="Business Model" width="1000" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
 </div>
 
 ## 🏗 System Architecture
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Architecture" width="400" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
+  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Architecture" width="400" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
 </div>
 
 Our system comprises three main components:
@@ -147,10 +147,10 @@ Our system comprises three main components:
 
 <div align="center">
 
-| <img src="https://github.com/akhargha.png" width="100" style="border-radius: 50%"/> | <img src="https://github.com/hlucomeister.png" width="100" style="border-radius: 50%"/> | <img src="https://github.com/shivanshudwivedi.png" width="100" style="border-radius: 50%"/> |
+| <img src="https://github.com/akhargha.png" width="200" style="border-radius: 50%"/> | <img src="https://github.com/hlucomeister.png" width="200" style="border-radius: 50%"/> | <img src="https://github.com/shivanshudwivedi.png" width="200" style="border-radius: 50%"/> |
 |:--:|:--:|:--:|
 | **Anupam** | **Hyun** | **Shivanshu** |
-| [GitHub](https://github.com/akhargha) | [GitHub](https://github.com/hlucomeister) | [GitHub](https://github.com/shivanshudwivedi) |
+| [GitHub](https://github.com/akhargha) | [GitHub](https://github.com/Hlucomeister) | [GitHub](https://github.com/shivanshudwivedi) |
 | Backend & ML | Frontend | Product & Design |
 
 </div>
