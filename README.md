@@ -23,20 +23,6 @@ Another sustainability app? No, we're an app that cares about you, nature, and y
 
 </div>
 
-## 📑 Table of Contents
-
-- [Overview](#-overview)
-- [Features](#-key-features)
-- [Business Model](#-business-model)
-- [System Architecture](#-system-architecture)
-- [Technology Stack](#-technology-stack)
-- [Product Screenshots](#-product-screenshots)
-- [Installation](#-installation)
-- [API Documentation](#-api-documentation)
-- [Contributing](#-contributing)
-- [Team](#-team)
-- [License](#-license)
-
 ## 🚀 Overview
 
 Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious decisions into rewarding experiences. Through advanced computer vision and AI, we help users discover the environmental impact and health implications of their purchases, while offering sustainable alternatives that align with their priorities. Every sustainable choice earns rewards, creating a virtuous cycle of conscious consumption.
