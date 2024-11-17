@@ -25,7 +25,7 @@
 
 ## 🚀 Overview
 
-Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious decisions into rewarding experiences. Through advanced computer vision and AI, we help users discover the environmental impact and health implications of their purchases, while offering sustainable alternatives that align with their priorities. Every sustainable choice earns rewards, creating a virtuous cycle of conscious consumption.
+Shelf-Aware revolutionizes sustainable shopping by transforming eco-conscious decisions into rewarding experiences. Through advanced computer vision and AI, we help users discover the environmental impact and health implications of their purchases, while offering sustainable alternatives that align with their priorities. Every sustainable choice earns rewards, creating a virtuous cycle of conscious consumption.
 
 ### The Problem
 - Overwhelmed consumers facing complex product choices
@@ -76,7 +76,7 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 
 ## 💼 Business Model
 
-Shelf-Care creates a sustainable ecosystem benefiting all stakeholders:
+Shelf-Aware creates a sustainable ecosystem benefiting all stakeholders:
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/556e4399-9edf-425e-a25d-73a115a6ef19" alt="Business Model" width="1000" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;" />
