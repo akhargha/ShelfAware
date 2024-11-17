@@ -1,0 +1,23 @@
+{
+    "timestamp": 1731804047,
+    "detections": [
+    {
+    "index": 0,
+    "confidence": 0.6,
+    "detected_text": "IZZE SPARKLING BLACKBERRY 70",
+    "completed_text": "Caprisun",
+    "brand": "caprisun",
+    "image_path": "detected_objects/brand_detection_1731804047.jpg",
+    "timestamp": 1731804047,
+    "type": "brand_detection",
+    "product_name": "Pepsi",
+    "text" : "Pepsi"
+    }
+    ],
+    "metadata": {
+    "brands_monitored": [
+    "izze",
+    "caprisun"
+    ]
+    }
+    }

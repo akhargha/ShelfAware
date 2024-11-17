@@ -81,7 +81,7 @@ export default function TopBar() {
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem key="profile">Signed in as anupam@wesleyan.edu</DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
+            <DropdownItem key="settings" href="/settings">My Settings</DropdownItem>
             <DropdownItem key="logout" color="danger">Log Out</DropdownItem>
           </DropdownMenu>
         </Dropdown>
