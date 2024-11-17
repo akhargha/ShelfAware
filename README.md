@@ -137,7 +137,7 @@ Our system comprises three main components:
 | <img src="https://github.com/akhargha.png" width="200" style="border-radius: 50%"/> | <img src="https://github.com/hlucomeister.png" width="200" style="border-radius: 50%"/> | <img src="https://github.com/shivanshudwivedi.png" width="200" style="border-radius: 50%"/> |
 |:--:|:--:|:--:|
 | **Anupam** | **Hyun** | **Shivanshu** |
-| [GitHub](https://github.com/akhargha) | [GitHub](https://github.com/Hclucomeister) | [GitHub](https://github.com/shivanshudwivedi) |
+| [GitHub](https://github.com/akhargha) | [GitHub](https://github.com/LucasHyun) | [GitHub](https://github.com/shivanshudwivedi) |
 | Frontend | Machine Learning | Backend |
 
 </div>
