@@ -15,13 +15,11 @@ import {
   TableCell,
 } from "@nextui-org/react";
 import { createClient } from "@supabase/supabase-js";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Initialize Supabase client
 const supabaseUrl = "https://ojtlrdwysacpdlszfnmu.supabase.co";
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qdGxyZHd5c2FjcGRsc3pmbm11Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE3NzgzNDUsImV4cCI6MjA0NzM1NDM0NX0.1WTlkiApXe846IMbAYNq9Z3zPp5fXl36-dl63dbtTog";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qdGxyZHd5c2FjcGRsc3pmbm11Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE3NzgzNDUsImV4cCI6MjA0NzM1NDM0NX0.1WTlkiApXe846IMbAYNq9Z3zPp5fXl36-dl63dbtTog"; // Replace with your actual Supabase key
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function CompareBox({ isOpen, onClose }) {
@@ -29,10 +27,23 @@ export default function CompareBox({ isOpen, onClose }) {
   const [alternatives, setAlternatives] = useState([]);
   const [maxSustainability, setMaxSustainability] = useState(null);
 
+  const handleClose = async () => {
+    try {
+      // Send DELETE request to /delete_all endpoint
+      await fetch("http://localhost:5005/delete_all", { method: "DELETE" });
+      console.log("All data deleted successfully.");
+    } catch (error) {
+      console.error("Error deleting data:", error);
+    } finally {
+      onClose(); // Close the modal after the request
+    }
+  };
+
   useEffect(() => {
+    let isMounted = true; // To prevent state updates if component is unmounted
+
     const fetchProductData = async () => {
       try {
-        // Fetch product data
         const { data: productData, error: productError } = await supabase
           .from("product_information")
           .select("*")
@@ -40,28 +51,22 @@ export default function CompareBox({ isOpen, onClose }) {
 
         if (productError) {
           console.error("Error fetching product data:", productError);
-        } else {
+        } else if (isMounted) {
           setProduct(productData);
         }
 
-        // Fetch product alternatives
-        const { data: alternativeData, error: alternativeError } =
-          await supabase.from("product_alternatives").select("*");
+        const { data: alternativeData, error: alternativeError } = await supabase
+          .from("product_alternatives")
+          .select("*");
 
         if (alternativeError) {
-          console.error(
-            "Error fetching product alternatives:",
-            alternativeError
-          );
-        } else {
+          console.error("Error fetching product alternatives:", alternativeError);
+        } else if (isMounted) {
           setAlternatives(alternativeData);
 
-          // Determine the product with the highest sustainability score
           const allProducts = [productData, ...alternativeData];
           const maxProduct = allProducts.reduce((prev, curr) =>
-            curr.sustainability_rating > prev.sustainability_rating
-              ? curr
-              : prev
+            curr.sustainability_rating > prev.sustainability_rating ? curr : prev
           );
           setMaxSustainability(maxProduct);
         }
@@ -70,13 +75,18 @@ export default function CompareBox({ isOpen, onClose }) {
       }
     };
 
-    fetchProductData();
-  }, []);
+    if (isOpen) {
+      fetchProductData();
+    }
+
+    return () => {
+      isMounted = false; // Cleanup to prevent state updates on unmounted component
+    };
+  }, [isOpen]);
 
   const handleBuyClick = async (selectedProduct) => {
     if (selectedProduct.sustainability_rating > product.sustainability_rating) {
       try {
-        // Fetch the current points from Supabase
         const { data, error: fetchError } = await supabase
           .from("Points")
           .select("points")
@@ -90,7 +100,6 @@ export default function CompareBox({ isOpen, onClose }) {
 
         const updatedPoints = data.points + 100;
 
-        // Update points in Supabase
         const { error: updateError } = await supabase
           .from("Points")
           .update({ points: updatedPoints })
@@ -99,19 +108,22 @@ export default function CompareBox({ isOpen, onClose }) {
         if (updateError) {
           console.error("Error updating points:", updateError);
         } else {
-          // Show toast notification
-          toast.success("You just earned points! Congrats on investing in sustainability!");
-          // Close the modal after a short delay to allow the toast to display
+          toast.success(
+            "You just earned points! Congrats on investing in sustainability!"
+          );
           setTimeout(onClose, 2000);
         }
       } catch (error) {
         console.error("Error updating points:", error);
       }
+    } else {
+      // Handle the case when the selected product is not more sustainable
+      toast.info("This product is not more sustainable.");
     }
   };
 
   if (!product) {
-    return <div>Loading...</div>;
+    return null; // Do not render anything if data is not available
   }
 
   const allProducts = [
@@ -141,12 +153,12 @@ export default function CompareBox({ isOpen, onClose }) {
       render: (item) => `${item.reliability_index} / 5.0`,
     },
     {
-      key: "biodegradable",
+      key: "sustainability_biodegradable",
       label: "♻️ Biodegradable",
       render: (item) => item.sustainability_biodegradable,
     },
     {
-      key: "recyclable",
+      key: "sustainability_recyclable",
       label: "♻️ Recyclable",
       render: (item) => item.sustainability_recyclable,
     },
@@ -157,7 +169,7 @@ export default function CompareBox({ isOpen, onClose }) {
       <ToastContainer />
       <Modal
         isOpen={isOpen}
-        onOpenChange={(state) => !state && onClose()}
+        onOpenChange={(state) => !state && handleClose()}
         isDismissable={false}
         isKeyboardDismissDisabled={true}
         scrollBehavior="inside"
@@ -223,7 +235,7 @@ export default function CompareBox({ isOpen, onClose }) {
                 <span style={{ fontSize: "12px", fontStyle: "italic" }}>
                   * Sustainably sponsored
                 </span>
-                <Button color="danger" variant="light" onPress={onClose}>
+                <Button color="danger" variant="light" onPress={handleClose}>
                   Close
                 </Button>
               </div>

@@ -1,3 +1,4 @@
+#urlBot.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
@@ -608,7 +609,7 @@ if __name__ == '__main__':
     if missing_vars:
         raise ConfigError(f"Missing required environment variables: {', '.join(missing_vars)}")
     
-    port = int(os.getenv('PORT', 5000))
+    port = 5008
     debug = os.getenv('FLASK_ENV', 'production') == 'development'
     
     logger.info(f"Starting server on port {port} with debug={debug}")

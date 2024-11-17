@@ -480,3 +480,1039 @@ postgrest.exceptions.APIError: {'code': '22P02', 'details': None, 'hint': None, 
 2024-11-17 04:14:44,971 - ProductAnalyzer - INFO - [urlBot.py:474] - Request 20241117041429964784: Successfully processed
 2024-11-17 04:14:44,973 - ProductAnalyzer - INFO - [urlBot.py:379] - Response Status: 200 OK
 2024-11-17 04:14:44,974 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '1989'}
+2024-11-17 04:49:16,419 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 04:49:16,421 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 04:49:16,421 - ProductAnalyzer - CRITICAL - [urlBot.py:364] - Failed to initialize clients: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Traceback (most recent call last):
+  File "/Users/anupamkhargharia/Downloads/green/ShelfAware/backend/urlBot.py", line 355, in <module>
+    openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/openai/_client.py", line 105, in __init__
+    raise OpenAIError(
+openai.OpenAIError: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+
+2024-11-17 04:51:42,929 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 04:51:42,931 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 04:51:42,941 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 04:51:42,947 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 04:51:42,948 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5000 with debug=True
+2024-11-17 04:51:52,143 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 04:51:52,144 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 04:51:52,154 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 04:51:52,161 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 04:51:52,162 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 04:51:52,471 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 04:51:52,473 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 04:51:52,483 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 04:51:52,489 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 04:51:52,490 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 04:52:09,524 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 04:52:09,525 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 04:52:09,536 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 04:52:09,542 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 04:52:09,543 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 04:53:16,292 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 04:53:16,293 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 04:53:16,305 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 04:53:16,312 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 04:53:16,313 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 04:53:16,653 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 04:53:16,655 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 04:53:16,665 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 04:53:16,672 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 04:53:16,673 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 04:53:24,311 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 04:53:24,312 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 04:53:24,323 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 04:53:24,329 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 04:53:24,330 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 04:53:48,988 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 04:53:48,988 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 04:53:48,989 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 04:53:48,991 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 04:53:48,991 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2024-11-17 04:53:48,996 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 04:53:48,997 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 04:53:48,997 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Content-Length': '503', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 04:53:48,998 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=3EFNXYNNB4L3L&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731837220&sprefix=washing+machin%2Caps%2C173&sr=8-3"}
+2024-11-17 04:53:49,004 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117045349004729
+2024-11-17 04:53:49,005 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117045349004729: Analyzing URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=3EFNXYNNB4L3L&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731837220&sprefix=washing+machin%2Caps%2C173&sr=8-3
+2024-11-17 04:53:49,005 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 04:53:49,005 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117045349004729: Starting OpenAI analysis
+2024-11-17 04:53:49,005 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=3EFNXYNNB4L3L&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731837220&sprefix=washing+machin%2Caps%2C173&sr=8-3
+2024-11-17 04:54:02,404 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "Black+Decker BPWM09W Portable Washer",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.5
+  },
+  "Price": 252.36,
+  "Reliability_index": 4.2,
+  "Color_of_the_dustbin": "N/A",
+  "Alternatives": [
+    {
+      "Name": "Giantex Portable Mini Compact Twin Tub Washing Machine 17.6lbs Washer Spain Spinner Portable Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.8
+      },
+      "Price": 189.99,
+      "Reliability_index": 4.0
+    },
+    {
+      "Name": "Magic Chef MCSTCW09W1 0.9 cu. ft. Compact Washer",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 4.0
+      },
+      "Price": 249.99,
+      "Reliability_index": 4.3
+    },
+    {
+      "Name": "Costway Mini Washing Machine with Spin Dryer, Electric Compact Laundry Machines Portable Durable Design Washer Energy Saving, Rotary Controller",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.6
+      },
+      "Price": 104.99,
+      "Reliability_index": 3.9
+    }
+  ]
+}
+2024-11-17 04:54:02,405 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117045349004729: OpenAI analysis completed
+2024-11-17 04:54:02,405 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117045349004729: Validating data
+2024-11-17 04:54:02,405 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117045349004729: Validation completed
+2024-11-17 04:54:02,405 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117045349004729: Saving to Supabase
+2024-11-17 04:54:02,406 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: Black+Decker BPWM09W Portable Washer
+2024-11-17 04:54:02,893 - ProductAnalyzer - ERROR - [urlBot.py:345] - Error saving to Supabase: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input value for enum dustbin_color: "N/A"'}
+Traceback (most recent call last):
+  File "/Users/anupamkhargharia/Downloads/green/ShelfAware/backend/urlBot.py", line 322, in save_to_supabase
+    result = self.supabase.table("product_information").insert(main_product_data).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anupamkhargharia/Downloads/green/backend-ai/venv_name/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input value for enum dustbin_color: "N/A"'}
+
+2024-11-17 04:54:02,896 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 500 INTERNAL SERVER ERROR
+2024-11-17 04:54:02,896 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '216', 'Access-Control-Allow-Origin': 'http://localhost:5173'}
+2024-11-17 04:55:34,016 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 04:55:34,016 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 04:55:34,016 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 04:55:34,017 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 04:55:34,017 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2024-11-17 04:55:34,019 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 04:55:34,020 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 04:55:34,020 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Content-Length': '503', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 04:55:34,020 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=3EFNXYNNB4L3L&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731837220&sprefix=washing+machin%2Caps%2C173&sr=8-3"}
+2024-11-17 04:55:34,021 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117045534021386
+2024-11-17 04:55:34,021 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117045534021386: Analyzing URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=3EFNXYNNB4L3L&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731837220&sprefix=washing+machin%2Caps%2C173&sr=8-3
+2024-11-17 04:55:34,021 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 04:55:34,022 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117045534021386: Starting OpenAI analysis
+2024-11-17 04:55:34,022 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=3EFNXYNNB4L3L&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731837220&sprefix=washing+machin%2Caps%2C173&sr=8-3
+2024-11-17 04:55:47,856 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "BLACK+DECKER BPWM09W Portable Washer",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.5
+  },
+  "Price": 251.77,
+  "Reliability_index": 4.0,
+  "Color_of_the_dustbin": "N/A",
+  "Alternatives": [
+    {
+      "Name": "Giantex Portable Mini Compact Twin Tub Washing Machine 17.6lbs Washer Spain Spinner Portable Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.0
+      },
+      "Price": 189.99,
+      "Reliability_index": 4.2
+    },
+    {
+      "Name": "SUPER DEAL Portable Compact Washing Machine, Mini Twin Tub Washing Machine w/Washer&Spinner, Gravity Drain Pump and Drain Hose",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.3
+      },
+      "Price": 115.99,
+      "Reliability_index": 3.8
+    },
+    {
+      "Name": "COMFEE' Portable Washing Machine, 0.9 cu.ft Compact Washer With LED Display, 5 Wash Cycles, 2 Built-in Rollers, Space Saving Full-Automatic Washer, Ideal for RV, Dorm, Apartment, Ivory White",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 4.0
+      },
+      "Price": 219.0,
+      "Reliability_index": 4.5
+    }
+  ]
+}
+2024-11-17 04:55:47,857 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117045534021386: OpenAI analysis completed
+2024-11-17 04:55:47,857 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117045534021386: Validating data
+2024-11-17 04:55:47,857 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117045534021386: Validation completed
+2024-11-17 04:55:47,857 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117045534021386: Saving to Supabase
+2024-11-17 04:55:47,857 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: BLACK+DECKER BPWM09W Portable Washer
+2024-11-17 04:55:48,083 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: 44722706-131d-4005-a521-db86c3ecfbce
+2024-11-17 04:55:48,083 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117045534021386: Save completed
+2024-11-17 04:55:48,084 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117045534021386: Successfully processed
+2024-11-17 04:55:48,085 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 04:55:48,085 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '2213'}
+2024-11-17 05:01:13,154 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:01:13,155 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 05:01:13,155 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 05:01:13,156 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:01:13,156 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2024-11-17 05:01:13,158 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:01:13,158 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 05:01:13,158 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Content-Length': '503', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 05:01:13,158 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing+machine&qid=1731837665&sprefix=washing+machine%2Caps%2C125&sr=8-3"}
+2024-11-17 05:01:13,159 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117050113159253
+2024-11-17 05:01:13,159 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117050113159253: Analyzing URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing+machine&qid=1731837665&sprefix=washing+machine%2Caps%2C125&sr=8-3
+2024-11-17 05:01:13,159 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 05:01:13,159 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117050113159253: Starting OpenAI analysis
+2024-11-17 05:01:13,159 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing+machine&qid=1731837665&sprefix=washing+machine%2Caps%2C125&sr=8-3
+2024-11-17 05:01:26,699 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "BLACK+DECKER BPWM09W Portable Washer",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.5
+  },
+  "Price": 252.36,
+  "Reliability_index": 4.0,
+  "Color_of_the_dustbin": "black",
+  "Alternatives": [
+    {
+      "Name": "Giantex Full-Automatic Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.7
+      },
+      "Price": 289.99,
+      "Reliability_index": 4.2
+    },
+    {
+      "Name": "COMFEE' Portable Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.8
+      },
+      "Price": 249.0,
+      "Reliability_index": 4.1
+    },
+    {
+      "Name": "SUPER DEAL Portable Compact Mini Twin Tub Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.4
+      },
+      "Price": 159.99,
+      "Reliability_index": 3.9
+    }
+  ]
+}
+2024-11-17 05:01:26,699 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117050113159253: OpenAI analysis completed
+2024-11-17 05:01:26,699 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117050113159253: Validating data
+2024-11-17 05:01:26,700 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117050113159253: Validation completed
+2024-11-17 05:01:26,700 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117050113159253: Saving to Supabase
+2024-11-17 05:01:26,700 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: BLACK+DECKER BPWM09W Portable Washer
+2024-11-17 05:01:26,949 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: f0e8f1a0-fe45-4840-a5e9-12aad3298a80
+2024-11-17 05:01:26,949 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117050113159253: Save completed
+2024-11-17 05:01:26,950 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117050113159253: Successfully processed
+2024-11-17 05:01:26,951 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:01:26,951 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '1918'}
+2024-11-17 05:02:06,461 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:02:06,462 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:02:06,473 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:02:06,480 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:02:06,481 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:02:06,802 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:02:06,803 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:02:06,813 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:02:06,819 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:02:06,820 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:02:27,373 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:02:27,374 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 05:02:27,374 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 05:02:27,376 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:02:27,376 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2024-11-17 05:02:27,380 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:02:27,380 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 05:02:27,380 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Content-Length': '503', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 05:02:27,381 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing+machine&qid=1731837665&sprefix=washing+machine%2Caps%2C125&sr=8-3"}
+2024-11-17 05:02:27,387 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117050227387919
+2024-11-17 05:02:27,388 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117050227387919: Analyzing URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing+machine&qid=1731837665&sprefix=washing+machine%2Caps%2C125&sr=8-3
+2024-11-17 05:02:27,388 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 05:02:27,388 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117050227387919: Starting OpenAI analysis
+2024-11-17 05:02:27,388 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing+machine&qid=1731837665&sprefix=washing+machine%2Caps%2C125&sr=8-3
+2024-11-17 05:02:39,064 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "Black+Decker BPWM09W Portable Washer",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.5
+  },
+  "Price": 252.36,
+  "Reliability_index": 4.2,
+  "Color_of_the_dustbin": "black",
+  "Alternatives": [
+    {
+      "Name": "Giantex Portable Mini Compact Twin Tub Washing Machine 17.6lbs Washer Spain Spinner",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.7
+      },
+      "Price": 159.99,
+      "Reliability_index": 4.0
+    },
+    {
+      "Name": "Super Deal Portable Compact Washing Machine, Mini Twin Tub Washing Machine w/Washer&Spinner",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.6
+      },
+      "Price": 109.59,
+      "Reliability_index": 4.1
+    },
+    {
+      "Name": "COSTWAY Mini Washing Machine with Spin Dryer, Washing Capacity 5.5lbs",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.8
+      },
+      "Price": 99.99,
+      "Reliability_index": 3.9
+    }
+  ]
+}
+2024-11-17 05:02:39,065 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117050227387919: OpenAI analysis completed
+2024-11-17 05:02:39,065 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117050227387919: Validating data
+2024-11-17 05:02:39,065 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117050227387919: Validation completed
+2024-11-17 05:02:39,065 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117050227387919: Saving to Supabase
+2024-11-17 05:02:39,065 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: Black+Decker BPWM09W Portable Washer
+2024-11-17 05:02:39,744 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: 28e029cc-6cf7-46cb-b096-b53990973452
+2024-11-17 05:02:39,744 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117050227387919: Save completed
+2024-11-17 05:02:39,745 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117050227387919: Successfully processed
+2024-11-17 05:02:39,746 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:02:39,746 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '2034'}
+2024-11-17 05:03:43,430 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:03:43,431 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:03:43,441 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:03:43,448 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:03:43,449 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:04:01,996 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:04:01,998 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:04:02,008 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:04:02,014 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:04:02,015 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:04:02,334 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:04:02,335 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:04:02,346 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:04:02,352 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:04:02,352 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:04:38,847 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:04:38,848 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:04:38,858 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:04:38,865 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:04:38,866 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:04:39,180 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:04:39,181 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:04:39,191 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:04:39,198 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:04:39,198 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:04:57,949 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:04:57,950 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 05:04:57,950 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 05:04:57,953 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:04:57,953 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'POST, OPTIONS'}
+2024-11-17 05:04:57,957 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:04:57,958 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 05:04:57,958 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Content-Length': '503', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 05:04:57,959 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing+machine&qid=1731837665&sprefix=washing+machine%2Caps%2C125&sr=8-3"}
+2024-11-17 05:04:57,963 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117050457963508
+2024-11-17 05:04:57,963 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117050457963508: Analyzing URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing+machine&qid=1731837665&sprefix=washing+machine%2Caps%2C125&sr=8-3
+2024-11-17 05:04:57,964 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 05:04:57,964 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117050457963508: Starting OpenAI analysis
+2024-11-17 05:04:57,964 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing+machine&qid=1731837665&sprefix=washing+machine%2Caps%2C125&sr=8-3
+2024-11-17 05:05:11,281 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "BLACK+DECKER BPWM09W Portable Washer",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.5
+  },
+  "Price": 252.36,
+  "Reliability_index": 4.2,
+  "Color_of_the_dustbin": "black",
+  "Alternatives": [
+    {
+      "Name": "Giantex Portable Mini Compact Twin Tub Washing Machine 17.6lbs",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.6
+      },
+      "Price": 199.99,
+      "Reliability_index": 4.3
+    },
+    {
+      "Name": "SUPER DEAL Portable Compact Washing Machine, Mini Twin Tub Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.7
+      },
+      "Price": 109.59,
+      "Reliability_index": 4.0
+    },
+    {
+      "Name": "COSTWAY Mini Washing Machine with Spin Dryer, Electric Compact Laundry Machines",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.8
+      },
+      "Price": 99.99,
+      "Reliability_index": 4.1
+    }
+  ]
+}
+2024-11-17 05:05:11,282 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117050457963508: OpenAI analysis completed
+2024-11-17 05:05:11,282 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117050457963508: Validating data
+2024-11-17 05:05:11,282 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117050457963508: Validation completed
+2024-11-17 05:05:11,282 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117050457963508: Saving to Supabase
+2024-11-17 05:05:11,282 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: BLACK+DECKER BPWM09W Portable Washer
+2024-11-17 05:05:11,515 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: 89f93789-1c8b-4450-bc63-19706802c327
+2024-11-17 05:05:11,515 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117050457963508: Save completed
+2024-11-17 05:05:11,515 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117050457963508: Successfully processed
+2024-11-17 05:05:11,516 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:05:11,516 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '2006'}
+2024-11-17 05:07:21,266 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:07:21,267 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:07:21,277 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:07:21,284 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:07:21,285 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:07:21,599 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:07:21,601 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:07:21,610 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:07:21,617 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:07:21,618 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:07:38,119 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:07:38,119 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 05:07:38,119 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 05:07:38,120 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:07:38,121 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2024-11-17 05:07:38,125 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:07:38,126 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 05:07:38,126 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Content-Length': '512', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 05:07:38,126 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing%2Bmachine&qid=1731837665&sprefix=washing%2Bmachine%2Caps%2C125&sr=8-3&th=1"}
+2024-11-17 05:07:38,132 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117050738131948
+2024-11-17 05:07:38,132 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117050738131948: Analyzing URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing%2Bmachine&qid=1731837665&sprefix=washing%2Bmachine%2Caps%2C125&sr=8-3&th=1
+2024-11-17 05:07:38,132 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 05:07:38,132 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117050738131948: Starting OpenAI analysis
+2024-11-17 05:07:38,132 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing%2Bmachine&qid=1731837665&sprefix=washing%2Bmachine%2Caps%2C125&sr=8-3&th=1
+2024-11-17 05:07:50,586 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "BLACK+DECKER BPWM09W Portable Washer",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 4.0
+  },
+  "Price": 252.36,
+  "Reliability_index": 4.2,
+  "Color_of_the_dustbin": "blue",
+  "Alternatives": [
+    {
+      "Name": "Giantex Portable Mini Compact Twin Tub Washing Machine 17.6lbs",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.8
+      },
+      "Price": 189.99,
+      "Reliability_index": 4.3
+    },
+    {
+      "Name": "SUPER DEAL Portable Compact Mini Twin Tub Washing Machine w/Wash and Spin Cycle",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.9
+      },
+      "Price": 159.49,
+      "Reliability_index": 4.1
+    },
+    {
+      "Name": "Magic Chef MCSTCW09W1 0.9 cu. ft. Compact Washer",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 4.1
+      },
+      "Price": 249.99,
+      "Reliability_index": 4.0
+    }
+  ]
+}
+2024-11-17 05:07:50,586 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117050738131948: OpenAI analysis completed
+2024-11-17 05:07:50,587 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117050738131948: Validating data
+2024-11-17 05:07:50,587 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117050738131948: Validation completed
+2024-11-17 05:07:50,587 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117050738131948: Saving to Supabase
+2024-11-17 05:07:50,587 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: BLACK+DECKER BPWM09W Portable Washer
+2024-11-17 05:07:50,904 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: f751db67-7c75-42bb-9223-8cfedca7f54b
+2024-11-17 05:07:50,904 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117050738131948: Save completed
+2024-11-17 05:07:50,905 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117050738131948: Successfully processed
+2024-11-17 05:07:50,907 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:07:50,907 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '1980'}
+2024-11-17 05:18:19,251 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:18:19,252 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:18:19,262 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:18:19,268 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:18:19,269 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:18:19,688 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:18:19,689 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:18:19,699 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:18:19,706 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:18:19,707 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:18:53,460 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:18:53,460 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 05:18:53,461 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 05:18:53,463 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:18:53,463 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2024-11-17 05:18:53,467 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:18:53,467 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 05:18:53,467 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Content-Length': '512', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 05:18:53,468 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing%2Bmachine&qid=1731837665&sprefix=washing%2Bmachine%2Caps%2C125&sr=8-3&th=1"}
+2024-11-17 05:18:53,473 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117051853473746
+2024-11-17 05:18:53,474 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117051853473746: Analyzing URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing%2Bmachine&qid=1731837665&sprefix=washing%2Bmachine%2Caps%2C125&sr=8-3&th=1
+2024-11-17 05:18:53,474 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 05:18:53,474 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117051853473746: Starting OpenAI analysis
+2024-11-17 05:18:53,474 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Black-Decker-BPWM09W-Portable-Washer/dp/B0799Q45TT/ref=sr_1_3?crid=N2HXLIZZEBFX&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6jiDaBmfteFHBkQr5ooSy8x10C4tdDGTEdaJyFTSlM0OVEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.D69DFuaBlciMn3cpKtVdavxO6HRpAh-zJynnCPpZxOY&dib_tag=se&keywords=washing%2Bmachine&qid=1731837665&sprefix=washing%2Bmachine%2Caps%2C125&sr=8-3&th=1
+2024-11-17 05:19:05,302 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "Black+Decker BPWM09W Portable Washer",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.5
+  },
+  "Price": 252.36,
+  "Reliability_index": 4.0,
+  "Color_of_the_dustbin": "N/A",
+  "Alternatives": [
+    {
+      "Name": "Giantex Portable Mini Compact Twin Tub Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.7
+      },
+      "Price": 189.99,
+      "Reliability_index": 4.2
+    },
+    {
+      "Name": "SUPER DEAL Portable Compact Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.6
+      },
+      "Price": 109.59,
+      "Reliability_index": 4.0
+    },
+    {
+      "Name": "Panda PAN6320W Portable Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 4.0
+      },
+      "Price": 249.99,
+      "Reliability_index": 4.5
+    }
+  ]
+}
+2024-11-17 05:19:05,303 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117051853473746: OpenAI analysis completed
+2024-11-17 05:19:05,303 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117051853473746: Validating data
+2024-11-17 05:19:05,303 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117051853473746: Validation completed
+2024-11-17 05:19:05,303 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117051853473746: Saving to Supabase
+2024-11-17 05:19:05,303 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: Black+Decker BPWM09W Portable Washer
+2024-11-17 05:19:05,572 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: 1368a1a2-3b5b-4450-9953-4905937edae5
+2024-11-17 05:19:05,572 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117051853473746: Save completed
+2024-11-17 05:19:05,573 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117051853473746: Successfully processed
+2024-11-17 05:19:05,574 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:19:05,574 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '1918'}
+2024-11-17 05:19:32,126 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:19:32,127 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:19:32,138 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:19:32,144 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:19:32,145 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:19:32,464 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:19:32,465 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:19:32,475 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:19:32,481 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:19:32,482 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:19:57,677 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:19:57,677 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 05:19:57,678 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 05:19:57,679 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:19:57,679 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2024-11-17 05:19:57,682 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:19:57,683 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 05:19:57,683 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Content-Length': '601', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 05:19:57,683 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Kenmore-Top-Load-Agitator-Stainless-Capacity/dp/B075KLJXKZ/ref=sr_1_1_sspa?crid=1BEND6ASM5IVF&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731838790&sprefix=%2Caps%2C92&sr=8-1-spons&ufe=INHOUSE_INSTALLMENTS%3AUS_IHI_5M_HARDLINES_AUTOMATED&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"}
+2024-11-17 05:19:57,687 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117051957687925
+2024-11-17 05:19:57,688 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117051957687925: Analyzing URL: https://www.amazon.com/Kenmore-Top-Load-Agitator-Stainless-Capacity/dp/B075KLJXKZ/ref=sr_1_1_sspa?crid=1BEND6ASM5IVF&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731838790&sprefix=%2Caps%2C92&sr=8-1-spons&ufe=INHOUSE_INSTALLMENTS%3AUS_IHI_5M_HARDLINES_AUTOMATED&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1
+2024-11-17 05:19:57,688 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 05:19:57,688 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117051957687925: Starting OpenAI analysis
+2024-11-17 05:19:57,688 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Kenmore-Top-Load-Agitator-Stainless-Capacity/dp/B075KLJXKZ/ref=sr_1_1_sspa?crid=1BEND6ASM5IVF&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731838790&sprefix=%2Caps%2C92&sr=8-1-spons&ufe=INHOUSE_INSTALLMENTS%3AUS_IHI_5M_HARDLINES_AUTOMATED&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1
+2024-11-17 05:20:10,517 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "Kenmore 2622352 4.2 cu ft Total Capacity and Top Load Washer",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.5
+  },
+  "Price": 589.99,
+  "Reliability_index": 4.2,
+  "Color_of_the_dustbin": "blue",
+  "Alternatives": [
+    {
+      "Name": "Whirlpool WTW5000DW 4.3 cu. ft. High-Efficiency White Top Load Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.7
+      },
+      "Price": 674.0,
+      "Reliability_index": 4.3
+    },
+    {
+      "Name": "Samsung WA50R5200AW 5.0 cu. ft. Hi-Efficiency White Top Load Washing Machine",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 4.0
+      },
+      "Price": 799.0,
+      "Reliability_index": 4.5
+    },
+    {
+      "Name": "GE GTW465ASNWW Top Load Washer with Stainless Steel Basket, 4.5 Cu. Ft. Capacity",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.8
+      },
+      "Price": 650.0,
+      "Reliability_index": 4.1
+    }
+  ]
+}
+2024-11-17 05:20:10,518 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117051957687925: OpenAI analysis completed
+2024-11-17 05:20:10,518 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117051957687925: Validating data
+2024-11-17 05:20:10,518 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117051957687925: Validation completed
+2024-11-17 05:20:10,518 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117051957687925: Saving to Supabase
+2024-11-17 05:20:10,518 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: Kenmore 2622352 4.2 cu ft Total Capacity and Top Load Washer
+2024-11-17 05:20:10,873 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: ac123400-ed20-4848-95c4-e48fa3cbe4ed
+2024-11-17 05:20:10,873 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117051957687925: Save completed
+2024-11-17 05:20:10,875 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117051957687925: Successfully processed
+2024-11-17 05:20:10,877 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:20:10,877 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '2046'}
+2024-11-17 05:21:23,231 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:21:23,232 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 05:21:23,232 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 05:21:23,233 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:21:23,233 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'OPTIONS, POST'}
+2024-11-17 05:21:23,235 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5007/analyze_url
+2024-11-17 05:21:23,235 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 05:21:23,235 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5007', 'Connection': 'keep-alive', 'Content-Length': '553', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 05:21:23,236 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/Kenmore-Top-Load-Agitator-Stainless-Capacity/dp/B075KLJXKZ/ref=sr_1_4?crid=1BEND6ASM5IVF&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731838875&sprefix=%2Caps%2C92&sr=8-4&ufe=INHOUSE_INSTALLMENTS%3AUS_IHI_5M_HARDLINES_AUTOMATED"}
+2024-11-17 05:21:23,237 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117052123237069
+2024-11-17 05:21:23,237 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117052123237069: Analyzing URL: https://www.amazon.com/Kenmore-Top-Load-Agitator-Stainless-Capacity/dp/B075KLJXKZ/ref=sr_1_4?crid=1BEND6ASM5IVF&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731838875&sprefix=%2Caps%2C92&sr=8-4&ufe=INHOUSE_INSTALLMENTS%3AUS_IHI_5M_HARDLINES_AUTOMATED
+2024-11-17 05:21:23,237 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 05:21:23,237 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117052123237069: Starting OpenAI analysis
+2024-11-17 05:21:23,238 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/Kenmore-Top-Load-Agitator-Stainless-Capacity/dp/B075KLJXKZ/ref=sr_1_4?crid=1BEND6ASM5IVF&dib=eyJ2IjoiMSJ9.soHT3SHyb2ZQzHKBX-VH1gEs_Lg9fX_pgaqQkigjpKh_480tB85XJs5bHNuy3RIxoRshStwbLyUnzOEdQ3p0GWb9V9DmHelxkd31UYBxpXZFJHU13K6DuxpK21DGhK6j85Ttzs1-7FN9ijzcWORPvNqhPeGNu3BysA_aLXLBM6xEIswhy01UHFVwpMQk2j5q2RcQeev0RGp2OTT0ErFwpcI_9WLmqSc3v03YzQueLXo.FO-NwrIXJP3D0COPgsnxAja28hjfmm3al-vOJMKA16w&dib_tag=se&keywords=washing+machine&qid=1731838875&sprefix=%2Caps%2C92&sr=8-4&ufe=INHOUSE_INSTALLMENTS%3AUS_IHI_5M_HARDLINES_AUTOMATED
+2024-11-17 05:21:36,491 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "Kenmore 2622352 Top Load Washer",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.5
+  },
+  "Price": 749.99,
+  "Reliability_index": 4.0,
+  "Color_of_the_dustbin": "black",
+  "Alternatives": [
+    {
+      "Name": "LG WT7300CW",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 4.0
+      },
+      "Price": 999.0,
+      "Reliability_index": 4.2
+    },
+    {
+      "Name": "Samsung WA50R5400AV",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.7
+      },
+      "Price": 799.0,
+      "Reliability_index": 4.1
+    },
+    {
+      "Name": "Maytag MVWC565FW",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.5
+      },
+      "Price": 699.0,
+      "Reliability_index": 4.0
+    }
+  ]
+}
+2024-11-17 05:21:36,491 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117052123237069: OpenAI analysis completed
+2024-11-17 05:21:36,492 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117052123237069: Validating data
+2024-11-17 05:21:36,492 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117052123237069: Validation completed
+2024-11-17 05:21:36,492 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117052123237069: Saving to Supabase
+2024-11-17 05:21:36,492 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: Kenmore 2622352 Top Load Washer
+2024-11-17 05:21:36,724 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: 2a0154ee-e2a3-4225-80f1-7eff1452d9f2
+2024-11-17 05:21:36,725 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117052123237069: Save completed
+2024-11-17 05:21:36,725 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117052123237069: Successfully processed
+2024-11-17 05:21:36,726 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:21:36,726 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '1830'}
+2024-11-17 05:29:29,132 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:29:29,133 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:29:29,144 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:29:29,150 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:29:29,151 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:29:46,386 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:29:46,388 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:29:46,398 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:29:46,404 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:29:46,405 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5007 with debug=True
+2024-11-17 05:29:56,710 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:29:56,711 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:29:56,722 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:29:56,728 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:30:05,470 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:30:05,472 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:30:05,482 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:30:05,488 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:30:05,489 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 05:30:05,804 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:30:05,805 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:30:05,815 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:30:05,821 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:30:05,822 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 05:36:42,064 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:36:42,065 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:36:42,077 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:36:42,083 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:36:42,084 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 05:37:07,644 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:37:07,645 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:37:07,656 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:37:07,662 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:37:07,663 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 05:37:07,974 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:37:07,976 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:37:07,986 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:37:07,993 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:37:07,994 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 05:50:40,056 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:50:40,057 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:50:40,068 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:50:40,075 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:50:40,076 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 05:50:40,415 - ProductAnalyzer - INFO - [urlBot.py:49] - Environment variables loaded
+2024-11-17 05:50:40,416 - ProductAnalyzer - INFO - [urlBot.py:351] - Flask app initialized with CORS
+2024-11-17 05:50:40,426 - ProductAnalyzer - INFO - [urlBot.py:356] - OpenAI client initialized successfully
+2024-11-17 05:50:40,433 - ProductAnalyzer - INFO - [urlBot.py:362] - Supabase client initialized successfully
+2024-11-17 05:50:40,434 - ProductAnalyzer - INFO - [urlBot.py:615] - Starting server on port 5008 with debug=True
+2024-11-17 05:54:22,717 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5008/analyze_url
+2024-11-17 05:54:22,718 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: OPTIONS
+2024-11-17 05:54:22,718 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5008', 'Connection': 'keep-alive', 'Accept': '*/*', 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type', 'Origin': 'http://localhost:5173', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+2024-11-17 05:54:22,719 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:54:22,719 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'text/html; charset=utf-8', 'Allow': 'POST, OPTIONS'}
+2024-11-17 05:54:22,722 - ProductAnalyzer - INFO - [urlBot.py:371] - Request URL: http://localhost:5008/analyze_url
+2024-11-17 05:54:22,722 - ProductAnalyzer - INFO - [urlBot.py:372] - Request Method: POST
+2024-11-17 05:54:22,723 - ProductAnalyzer - INFO - [urlBot.py:373] - Request Headers: {'Host': 'localhost:5008', 'Connection': 'keep-alive', 'Content-Length': '484', 'Sec-Ch-Ua-Platform': '"macOS"', 'Accept-Language': 'en-US,en;q=0.9', 'Sec-Ch-Ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Accept': '*/*', 'Origin': 'http://localhost:5173', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
+2024-11-17 05:54:22,724 - ProductAnalyzer - INFO - [urlBot.py:375] - Request Body: {"url":"https://www.amazon.com/MalloMe-Single-Camping-Sleeping-Bag/dp/B077XQDZW4/ref=sr_1_3?crid=11JR4B20RI2FI&dib=eyJ2IjoiMSJ9.eus3TfckONaUHX8MrNk1sQoBvsMxUTQHX-zGsG7iSmg4KiN40R2RnPsxSq-oMEfiAe4fo9dju_OySS9oA-p-pCwI2FL4p0UOnt47YBY3OLmJ2CQz5T7Z7TIzCND_TRY790toFOgFjzXcVVtHZxJSJ-zFRmuF0t1Ji_YYaHzZ9eGvU1NHcF7WMDESRR4rpZQzgyw2BtwcuMwodT5IsTERvskZO2r4ix9erIPlQhlaDkA.NqBukP8en5ssC4OZ46bbUT3M_bW1MNGLL4gT9ubce60&dib_tag=se&keywords=sleeping+bag&qid=1731840855&sprefix=%2Caps%2C79&sr=8-3"}
+2024-11-17 05:54:22,727 - ProductAnalyzer - INFO - [urlBot.py:433] - Starting new request 20241117055422727793
+2024-11-17 05:54:22,728 - ProductAnalyzer - INFO - [urlBot.py:443] - Request 20241117055422727793: Analyzing URL: https://www.amazon.com/MalloMe-Single-Camping-Sleeping-Bag/dp/B077XQDZW4/ref=sr_1_3?crid=11JR4B20RI2FI&dib=eyJ2IjoiMSJ9.eus3TfckONaUHX8MrNk1sQoBvsMxUTQHX-zGsG7iSmg4KiN40R2RnPsxSq-oMEfiAe4fo9dju_OySS9oA-p-pCwI2FL4p0UOnt47YBY3OLmJ2CQz5T7Z7TIzCND_TRY790toFOgFjzXcVVtHZxJSJ-zFRmuF0t1Ji_YYaHzZ9eGvU1NHcF7WMDESRR4rpZQzgyw2BtwcuMwodT5IsTERvskZO2r4ix9erIPlQhlaDkA.NqBukP8en5ssC4OZ46bbUT3M_bW1MNGLL4gT9ubce60&dib_tag=se&keywords=sleeping+bag&qid=1731840855&sprefix=%2Caps%2C79&sr=8-3
+2024-11-17 05:54:22,728 - ProductAnalyzer - DEBUG - [urlBot.py:100] - ProductAnalyzer instance created
+2024-11-17 05:54:22,728 - ProductAnalyzer - INFO - [urlBot.py:449] - Request 20241117055422727793: Starting OpenAI analysis
+2024-11-17 05:54:22,728 - ProductAnalyzer - INFO - [urlBot.py:105] - Starting analysis for URL: https://www.amazon.com/MalloMe-Single-Camping-Sleeping-Bag/dp/B077XQDZW4/ref=sr_1_3?crid=11JR4B20RI2FI&dib=eyJ2IjoiMSJ9.eus3TfckONaUHX8MrNk1sQoBvsMxUTQHX-zGsG7iSmg4KiN40R2RnPsxSq-oMEfiAe4fo9dju_OySS9oA-p-pCwI2FL4p0UOnt47YBY3OLmJ2CQz5T7Z7TIzCND_TRY790toFOgFjzXcVVtHZxJSJ-zFRmuF0t1Ji_YYaHzZ9eGvU1NHcF7WMDESRR4rpZQzgyw2BtwcuMwodT5IsTERvskZO2r4ix9erIPlQhlaDkA.NqBukP8en5ssC4OZ46bbUT3M_bW1MNGLL4gT9ubce60&dib_tag=se&keywords=sleeping+bag&qid=1731840855&sprefix=%2Caps%2C79&sr=8-3
+2024-11-17 05:54:37,259 - ProductAnalyzer - DEBUG - [urlBot.py:163] - Analysis result: {
+  "product_name": "MalloMe Single Camping Sleeping Bag",
+  "Health_Information": {
+    "Nutrients": {},
+    "Ingredients": [],
+    "Health_index": 0.0
+  },
+  "Sustainability_Information": {
+    "Biodegradable": "No",
+    "Recyclable": "Yes",
+    "Sustainability_rating": 3.0
+  },
+  "Price": 29.99,
+  "Reliability_index": 4.5,
+  "Color_of_the_dustbin": "black",
+  "Alternatives": [
+    {
+      "Name": "REVALCAMP Sleeping Bag Indoor & Outdoor",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.5
+      },
+      "Price": 23.97,
+      "Reliability_index": 4.0
+    },
+    {
+      "Name": "TETON Sports Celsius XXL Sleeping Bag",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.0
+      },
+      "Price": 69.99,
+      "Reliability_index": 4.7
+    },
+    {
+      "Name": "Coleman Brazos Cold Weather Sleeping Bag",
+      "Health_Information": {
+        "Nutrients": {},
+        "Ingredients": [],
+        "Health_index": 0.0
+      },
+      "Sustainability_Information": {
+        "Biodegradable": "No",
+        "Recyclable": "Yes",
+        "Sustainability_rating": 3.5
+      },
+      "Price": 39.99,
+      "Reliability_index": 4.3
+    }
+  ]
+}
+2024-11-17 05:54:37,260 - ProductAnalyzer - INFO - [urlBot.py:451] - Request 20241117055422727793: OpenAI analysis completed
+2024-11-17 05:54:37,260 - ProductAnalyzer - INFO - [urlBot.py:454] - Request 20241117055422727793: Validating data
+2024-11-17 05:54:37,260 - ProductAnalyzer - INFO - [urlBot.py:456] - Request 20241117055422727793: Validation completed
+2024-11-17 05:54:37,260 - ProductAnalyzer - INFO - [urlBot.py:459] - Request 20241117055422727793: Saving to Supabase
+2024-11-17 05:54:37,261 - ProductAnalyzer - INFO - [urlBot.py:305] - Saving product to Supabase: MalloMe Single Camping Sleeping Bag
+2024-11-17 05:54:37,663 - ProductAnalyzer - INFO - [urlBot.py:341] - Successfully saved product with ID: 994c6848-c5fd-4ef8-a7aa-9702f3a69286
+2024-11-17 05:54:37,663 - ProductAnalyzer - INFO - [urlBot.py:464] - Request 20241117055422727793: Save completed
+2024-11-17 05:54:37,665 - ProductAnalyzer - INFO - [urlBot.py:475] - Request 20241117055422727793: Successfully processed
+2024-11-17 05:54:37,666 - ProductAnalyzer - INFO - [urlBot.py:380] - Response Status: 200 OK
+2024-11-17 05:54:37,666 - ProductAnalyzer - INFO - [urlBot.py:381] - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '1903'}

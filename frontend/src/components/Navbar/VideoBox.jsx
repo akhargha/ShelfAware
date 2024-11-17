@@ -1,19 +1,19 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { Camera, StopCircle, PlayCircle } from 'lucide-react';
-import {CircularProgress} from "@nextui-org/react";
-import InfoBox from "./InfoBox"; // Import the InfoBox component
+import { useState, useRef, useEffect } from 'react';
+import { Camera, StopCircle, PlayCircle, Search } from 'lucide-react';
+import { CircularProgress } from "@nextui-org/react";
+import InfoBox from "./InfoBox"; // Import InfoBox
 
 const API_BASE_URL = 'http://localhost:5002';
 
 export default function Home() {
   const [isProcessing, setIsProcessing] = useState(false);
-  const [detectedText, setDetectedText] = useState(null);
   const [error, setError] = useState(null);
   const [streamKey, setStreamKey] = useState(Date.now());
   const [loading, setLoading] = useState(false);
   const [showInfoBox, setShowInfoBox] = useState(false);
+  const [searchUrl, setSearchUrl] = useState(""); // State for the search bar input
   const imgRef = useRef(null);
 
   const startProcessing = async () => {
@@ -56,9 +56,7 @@ export default function Home() {
       const response = await fetch(`${API_BASE_URL}/status`);
       const data = await response.json();
 
-      setIsProcessing(data.processing);
       if (data.detected_text) {
-        setDetectedText(data.detected_text);
         await stopProcessing();
 
         // Call process_vision API
@@ -68,7 +66,7 @@ export default function Home() {
 
         if (processResult.status === "success") {
           setLoading(false); // Hide loader
-          setShowInfoBox(true); // Open InfoBox
+          setShowInfoBox(true); // Open InfoBox modal
         } else {
           setLoading(false);
           setError("Failed to process vision.");
@@ -80,10 +78,30 @@ export default function Home() {
     }
   };
 
-  const handleImageError = () => {
-    if (isProcessing) {
-      setStreamKey(Date.now()); // Retry with a new key
-      setError('Video stream connection lost. Retrying...');
+  const handleSearch = async () => {
+    try {
+      setShowInfoBox(false);
+      setLoading(true);
+      const response = await fetch(`http://localhost:5008/analyze_url`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url: searchUrl }),
+      });
+
+      const result = await response.json();
+      if (result.status === "success") {
+        setLoading(false);
+        setShowInfoBox(true);
+        setError(null);
+      } else {
+        setLoading(false);
+        setError(result.message || "URL analysis failed.");
+      }
+    } catch (err) {
+      setLoading(false);
+      setError("Failed to analyze URL. Please try again.");
     }
   };
 
@@ -123,7 +141,6 @@ export default function Home() {
                   src={`${API_BASE_URL}/video_feed`}
                   alt="Video Feed"
                   className="w-full h-full object-contain"
-                  onError={handleImageError}
                 />
               ) : loading ? (
                 <CircularProgress label="Loading..." />
@@ -160,13 +177,38 @@ export default function Home() {
             </button>
           </div>
 
+          <div className="flex items-center gap-4 mb-8">
+            <input
+              type="text"
+              value={searchUrl}
+              onChange={(e) => setSearchUrl(e.target.value)}
+              placeholder="Enter URL to analyze"
+              className="flex-1 px-4 py-2 border rounded-lg"
+            />
+            <button
+              onClick={handleSearch}
+              disabled={loading || !searchUrl}
+              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium ${
+                loading || !searchUrl
+                  ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                  : 'bg-blue-600 text-white hover:bg-blue-700'
+              }`}
+            >
+              <Search className="h-5 w-5" />
+              Search
+            </button>
+          </div>
+
           {error && (
             <div className="mt-4 p-4 bg-red-50 text-red-600 rounded-lg">
               {error}
             </div>
           )}
 
-          {showInfoBox && <InfoBox />}
+          {/* Conditionally render InfoBox */}
+          {showInfoBox && (
+            <InfoBox isOpen={showInfoBox} onOpenChange={setShowInfoBox} />
+          )}
         </div>
       </div>
     </main>
