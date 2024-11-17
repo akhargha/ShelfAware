@@ -629,6 +629,73 @@ def health_check():
             "version": "1.0.0",
             "environment": os.getenv('FLASK_ENV', 'production')
         }), 500
+    
+@app.route('/go', methods=['GET'])
+async def process_vision():
+    """
+    GET endpoint to process vision output JSON and extract text field.
+    Returns processed product information based on the extracted text.
+    """
+    try:
+        # Path to vision output JSON file
+        vision_file_path = 'vision_output.json'
+        
+        # Check if file exists
+        if not os.path.exists(vision_file_path):
+            return jsonify({
+                "status": "error",
+                "error": "Vision output file not found",
+                "timestamp": datetime.utcnow().isoformat()
+            }), 404
+            
+        # Read and parse the JSON file
+        try:
+            with open(vision_file_path, 'r') as file:
+                vision_data = json.load(file)
+        except json.JSONDecodeError as e:
+            return jsonify({
+                "status": "error",
+                "error": f"Invalid JSON in vision output file: {str(e)}",
+                "timestamp": datetime.utcnow().isoformat()
+            }), 400
+            
+        # Extract text field
+        text = vision_data.get('text')
+        if not text:
+            return jsonify({
+                "status": "error",
+                "error": "No text field found in vision output",
+                "timestamp": datetime.utcnow().isoformat()
+            }), 400
+            
+        # Get raw product information
+        raw_info = get_raw_product_info(text)
+        
+        # Extract JSON from the response
+        json_data = extract_json_from_text(raw_info)
+        
+        # Clean and validate the JSON structure
+        cleaned_data = clean_json_structure(json_data, text)
+        
+        # Save to Supabase
+        result = await save_to_supabase(text, cleaned_data)
+        
+        return jsonify({
+            "status": "success",
+            "message": "Vision output processed successfully",
+            "product_id": result["product_id"],
+            "data": cleaned_data,
+            "original_text": text,
+            "timestamp": datetime.utcnow().isoformat()
+        })
+        
+    except Exception as e:
+        print(f"Error processing vision output: {str(e)}")
+        return jsonify({
+            "status": "error",
+            "error": str(e),
+            "timestamp": datetime.utcnow().isoformat()
+        }), 500
 
 @app.errorhandler(404)
 def not_found_error(error):
