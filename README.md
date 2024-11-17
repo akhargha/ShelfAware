@@ -85,28 +85,6 @@ Shelf-Care operates on a multi-sided platform model that creates value for all s
 - Waste reduction through conscious consumption
 - Support for eco-friendly initiatives
 
-### Revenue Streams 💰
-1. **Business Partnerships**
-   - Commission on redeemed rewards
-   - Premium listing for sustainable products
-   - Advanced analytics access
-   - Verified sustainability badge program
-
-2. **Data Insights**
-   - Aggregated consumer behavior analytics
-   - Sustainability trend reports
-   - Market research for eco-friendly products
-
-3. **Premium Features**
-   - Advanced product comparison tools
-   - Personalized sustainability coach
-   - Family account management
-   - Extended reward programs
-
-4. **API Services**
-   - Sustainability scoring API
-   - Product recommendation engine
-   - Integration services for e-commerce
 
 [Rest of the README continues as before with System Architecture, Technology Stack, etc.]
 
