@@ -53,6 +53,9 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Comprehensive sustainability metrics
 - Health impact assessment
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1511964c-6f59-42b2-b7f4-3116e959e8c8" alt="Shel-Care" width="400" />
+
 ### 2. Personalized Recommendations
 - Priority-based alternative suggestions
 - Health-sustainability-price balance
@@ -60,12 +63,18 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Local availability information
 - Price and value comparison
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/994fd8d7-853c-42e8-a788-09184f226484" alt="Shel-Care" width="400" />
+
 ### 3. Reward System
 - EcoPoints for sustainable choices
 - Partnership rewards with local businesses
 - Redeemable restaurant coupons
 - Achievement badges and tracking
 - Social sharing incentives
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5a1ccd6b-b1ca-4d15-9eac-c5d5c825dfb5" alt="Shel-Care" width="400" />
 
 ## Architecture 
 
@@ -94,7 +103,37 @@ Our system comprises three main components:
    - Responsive design
    - Real-time updates
 
-[Continue with the rest of the sections as in the previous version, just updating the product name to Shelf-Care where applicable]
+2. **Backend Services**
+   - Flask REST API
+   - Computer Vision Processing
+   - OpenAI Integration
+   - Authentication & Authorization
+
+3. **Data Layer**
+   - Supabase Database
+   - File Storage
+   - Cache Management
+   - Data Analytics
+
+## 💻 Technology Stack
+
+### Frontend
+- React 18.x
+- Vite 5.x
+- NextUI
+- TypeScript
+
+### Backend
+- Python 3.9+
+- Flask
+
+- TensorFlow
+- OpenCV
+- EasyOCR
+- OpenAI GPT-4
+
+### Database
+- Supabase
 
 ## 👥 Team
 
@@ -115,6 +154,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 Made with 💚 for a sustainable future
-
-[Website](#) · [Documentation](#) · [Report Bug](#) · [Request Feature](#)
 </div>
