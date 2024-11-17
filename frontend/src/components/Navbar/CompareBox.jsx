@@ -100,7 +100,7 @@ export default function CompareBox({ isOpen, onClose }) {
           console.error("Error updating points:", updateError);
         } else {
           // Show toast notification
-          toast.success("Congrats!");
+          toast.success("You just earned points! Congrats on investing in sustainability!");
           // Close the modal after a short delay to allow the toast to display
           setTimeout(onClose, 2000);
         }
