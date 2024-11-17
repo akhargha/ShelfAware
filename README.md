@@ -1,6 +1,6 @@
 # 🌱 Shelf-Care
 
-Another sustainability app? No, we're an app that cares about you, nature, and your wallet.
+## Another sustainability app? No, we're an app that cares about you, nature, and your wallet.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-18.x-blue.svg)](https://reactjs.org/)
