@@ -134,7 +134,7 @@ Our system comprises three main components:
 
 <div align="center">
 
-| <img src="https://github.com/akhargha.png" width="200" style="border-radius: 50%"/> | <img src="https://github.com/hlucomeister.png" width="200" style="border-radius: 50%"/> | <img src="https://github.com/shivanshudwivedi.png" width="200" style="border-radius: 50%"/> |
+| <img src="https://github.com/akhargha.png" width="200" style="border-radius: 50%"/> | <img src="https://github.com/LucasHyun.png" width="200" style="border-radius: 50%"/> | <img src="https://github.com/shivanshudwivedi.png" width="200" style="border-radius: 50%"/> |
 |:--:|:--:|:--:|
 | **Anupam** | **Hyun** | **Shivanshu** |
 | [GitHub](https://github.com/akhargha) | [GitHub](https://github.com/LucasHyun) | [GitHub](https://github.com/shivanshudwivedi) |
