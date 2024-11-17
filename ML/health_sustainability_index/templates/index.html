@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Sustainability & Health Index</h1>
+    <form id="sustainabilityForm" class="mt-4">
+        <h3>Sustainability Index</h3>
+        <label>CO2 Emission (tCO2e):</label>
+        <input type="number" name="co2_emission" class="form-control" required>
+        <label>Renewable Energy (%) :</label>
+        <input type="number" name="renewable_energy" class="form-control" required>
+        <label>Waste Recycling (%) :</label>
+        <input type="number" name="waste_recycling" class="form-control" required>
+        <label>Transport Distance (km):</label>
+        <input type="number" name="transport_distance" class="form-control" required>
+        <button type="submit" class="btn btn-primary mt-3">Calculate Sustainability Index</button>
+    </form>
+
+    <form id="healthForm" class="mt-5">
+        <h3>Health Index</h3>
+        <label>Sugar (g):</label>
+        <input type="number" name="sugar" class="form-control" required>
+        <label>Sodium (mg):</label>
+        <input type="number" name="sodium" class="form-control" required>
+        <label>Saturated Fat (g):</label>
+        <input type="number" name="saturated_fat" class="form-control" required>
+        <label>Fiber (g):</label>
+        <input type="number" name="fiber" class="form-control" required>
+        <label>Vitamins (%):</label>
+        <input type="number" name="vitamins" class="form-control" required>
+        <button type="submit" class="btn btn-primary mt-3">Calculate Health Index</button>
+    </form>
+</div>
+</body>
+</html>
