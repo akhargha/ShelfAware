@@ -7,7 +7,10 @@ Another sustainability app? No, we're an app that cares about you, nature, and y
 [![Vite](https://img.shields.io/badge/Vite-5.x-purple.svg)](https://vitejs.dev/)
 [![Python](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
 
+![Alt Text](https://imgur.com/a/0d7vMpT)
+
 > Making conscious choices irresistibly rewarding. Scan products, discover eco-friendly alternatives, and earn while you save the planet.
+
 
 ## 📑 Table of Contents
 
