@@ -136,6 +136,8 @@ def get_raw_product_info(product_name: str) -> str:
             }}
         ]
     }}
+    
+    (IMPORTANT) All the data values for indexes should be different and non 0
 
     CRITICAL RULES:
     1. ALL numeric values must be plain numbers (e.g., 7.50 not "$7.50" or "7.50 per liter")
