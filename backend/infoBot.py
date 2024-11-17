@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import requests
 import json
 import os
 from datetime import datetime
@@ -7,18 +6,16 @@ from supabase import create_client, Client
 from typing import Dict, Any, List
 import re
 from dotenv import load_dotenv
-import json
 from pathlib import Path
-
-from flask import Flask, request, jsonify
 from flask.views import MethodView
 from asgiref.wsgi import WsgiToAsgi
 from hypercorn.config import Config
 from hypercorn.asyncio import serve
 import asyncio
 from flask_cors import CORS
-# Load environment variables
+from openai import OpenAI
 
+# Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
@@ -29,12 +26,18 @@ CORS(app, resources={
 })
 
 # Constants from environment variables
-PERPLEXITY_API_URL = os.getenv('PERPLEXITY_API_URL')
-PERPLEXITY_API_KEY = f"Bearer {os.getenv('PERPLEXITY_API_KEY')}"
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 SUPABASE_URL = os.getenv('SUPABASE_URL')
 SUPABASE_KEY = os.getenv('SUPABASE_KEY')
-
 VISION_PROCESS_PATH = Path("vision_output.json")
+
+# Initialize OpenAI and Supabase clients
+client = OpenAI(api_key=OPENAI_API_KEY)
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+# Validate environment variables
+if not all([OPENAI_API_KEY, SUPABASE_URL, SUPABASE_KEY]):
+    raise EnvironmentError("Missing required environment variables. Please check your .env file.")
 
 def read_vision_process_file() -> str:
     """Read and parse the vision process JSON file to get product name."""
@@ -54,145 +57,117 @@ def read_vision_process_file() -> str:
         raise Exception(f"Invalid JSON in vision process file: {str(e)}")
     except Exception as e:
         raise Exception(f"Error reading vision process file: {str(e)}")
-
-# Validate environment variables
-if not all([PERPLEXITY_API_URL, PERPLEXITY_API_KEY, SUPABASE_URL, SUPABASE_KEY]):
-    raise EnvironmentError("Missing required environment variables. Please check your .env file.")
-
-# Initialize Supabase client
-try:
-    supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-except Exception as e:
-    raise Exception(f"Failed to initialize Supabase client: {str(e)}")
-
-def call_perplexity_api(messages: List[Dict[str, str]]) -> Dict[str, Any]:
-    """Helper function to make requests to the Perplexity API."""
-    headers = {
-        "Authorization": PERPLEXITY_API_KEY,
-        "Content-Type": "application/json"
-    }
     
-    payload = {
-        "model": "llama-3.1-sonar-small-128k-online",
-        "messages": messages
-    }
-    
-    response = requests.post(PERPLEXITY_API_URL, json=payload, headers=headers)
-    
-    if response.status_code != 200:
-        raise Exception(f"API Error: {response.status_code}, {response.text}")
-    
-    return response.json()
-
-def get_raw_product_info(product_name: str) -> str:
-    """Get detailed raw information about the product with improved prompt engineering."""
-    prompt = f"""
-    Provide ONLY a JSON object for {product_name} with EXACT numeric values (no text descriptions in numeric fields). If the {product_name} is not full, then make sure to find the closest market fit to it.
-    Follow this STRICT format:
-
-    {{
-        "Health_Information": {{
-            "Nutrients": {{
-                "Calories": "number kcal",
-                "Total_Fat": "number g",
-                "Saturated_Fat": "number g",
-                "Trans_Fat": "number g",
-                "Cholesterol": "number mg",
-                "Sodium": "number mg",
-                "Total_Carbohydrates": "number g",
-                "Dietary_Fiber": "number g",
-                "Total_Sugars": "number g",
-                "Added_Sugars": "number g",
-                "Protein": "number g",
-                "Vitamin_D": "number mcg",
-                "Calcium": "number mg",
-                "Iron": "number mg",
-                "Potassium": "number mg"
-            }},
-            "Ingredients": ["ingredient1", "ingredient2", "ingredient3"], (Find the ingredients of product or make it up)
-            "Health_index": number
-        }},
-        "Sustainability_Information": {{
-            "Biodegradable": "Yes/No",
-            "Recyclable": "Yes/No",
-            "Sustainability_rating": number
-        }},
-        "Price": number,
-        "Reliability_index": number,
-        "Color_of_the_dustbin": "blue/green/black",
-        "Technical_Specifications": {{
-            "Material": "string"
-        }},
-        "Alternatives": [
-            {{
-                "Name": "string",
-                "Brand": "string",
-                "Health_Information": {{
-                    "Nutrients": {{same as above}},
-                    "Ingredients": ["ingredient1", "ingredient2"],
-                    "Health_index": number
-                }},
-                "Sustainability_Information": {{
-                    "Biodegradable": "Yes/No",
-                    "Recyclable": "Yes/No",
-                    "Sustainability_rating": number (must be higher than original product)
-                }},
-                "Price": number,
-                "Reliability_index": number,
-            }}
-        ]
-    }}
-    
-    (IMPORTANT) All the data values for indexes should be different and non 0
-
-    CRITICAL RULES:
-    1. ALL numeric values must be plain numbers (e.g., 7.50 not "$7.50" or "7.50 per liter")
-    2. ALL ratings must be numbers between 2.0 and 5.0
-    3. Prices must be numbers only (no currency symbols or units)
-    4. Health_index and other indices must be numbers only
-    5. Return exactly 3 alternatives
-    6. No additional text or explanations - ONLY the JSON object
-    7. No placeholders or text descriptions in numeric fields
-    8. All the alternatives should be real market alternatives
-    9. All the ingredients should be real market ingredients
-    """
-    
-    messages = [{"role": "user", "content": prompt}]
-    response = call_perplexity_api(messages)
-    raw_content = response['choices'][0]['message']['content']
-    return raw_content
-
-
-def extract_json_from_text(text: str) -> Dict[str, Any]:
-    """Extract and parse JSON from text response with improved error handling."""
+def call_openai_api(product_name: str) -> Dict[str, Any]:
+    """Helper function to make requests to the OpenAI API."""
     try:
-        # Clean up common formatting issues
-        text = re.sub(r'```json\s*', '', text)
-        text = re.sub(r'\s*', '', text)
-        text = re.sub(r'\n\s*#.*$', '', text, flags=re.MULTILINE)  # Remove comments
+        prompt = f"""
+        Provide a detailed JSON object for {product_name} with EXACT numeric values (no text descriptions in numeric fields). 
+        If the {product_name} cannot be fully determined, provide the closest market equivalent.
         
-        # Find the JSON content
-        json_match = re.search(r'\{[\s\S]*\}', text)
-        if not json_match:
-            raise Exception("No JSON found in response")
+        Follow this STRICT format and return ONLY the JSON object with no additional text:
+        {{
+            "Health_Information": {{
+                "Nutrients": {{
+                    "Calories": "number kcal",
+                    "Total_Fat": "number g",
+                    "Saturated_Fat": "number g",
+                    "Trans_Fat": "number g",
+                    "Cholesterol": "number mg",
+                    "Sodium": "number mg",
+                    "Total_Carbohydrates": "number g",
+                    "Dietary_Fiber": "number g",
+                    "Total_Sugars": "number g",
+                    "Added_Sugars": "number g",
+                    "Protein": "number g",
+                    "Vitamin_D": "number mcg",
+                    "Calcium": "number mg",
+                    "Iron": "number mg",
+                    "Potassium": "number mg"
+                }},
+                "Ingredients": ["ingredient1", "ingredient2", "ingredient3"],
+                "Health_index": number
+            }},
+            "Sustainability_Information": {{
+                "Biodegradable": "Yes/No",
+                "Recyclable": "Yes/No",
+                "Sustainability_rating": number
+            }},
+            "Price": number,
+            "Reliability_index": number,
+            "Color_of_the_dustbin": "blue/green/black",
+            "Technical_Specifications": {{
+                "Material": "string"
+            }},
+            "Alternatives": [
+                {{
+                    "Name": "string",
+                    "Brand": "string",
+                    "Health_Information": {{
+                        "Nutrients": {{same structure as above}},
+                        "Ingredients": ["ingredient1", "ingredient2"],
+                        "Health_index": number
+                    }},
+                    "Sustainability_Information": {{
+                        "Biodegradable": "Yes/No",
+                        "Recyclable": "Yes/No",
+                        "Sustainability_rating": number
+                    }},
+                    "Price": number,
+                    "Reliability_index": number,
+                    "Key_Differences": "string"
+                }}
+            ]
+        }}
+    
+        Critical Rules:
+        1. ALL numeric values must be plain numbers without units
+        2. ALL ratings must be between 2.0 and 5.0
+        3. Provide exactly 3 real market alternatives
+        4. Use only real market ingredients
+        5. Return ONLY the JSON object, no additional text
+        6. Ensure all numeric fields contain actual numbers
+        7. Ensure sustainability ratings of alternatives are higher than the original product
+        8. All indices must be different and non-zero
+        """
+
+        response = client.chat.completions.create(
+            model="gpt-4o",  # or "gpt-3.5-turbo" if you prefer
+            messages=[
+                {
+                    "role": "system", 
+                    "content": "You are a precise assistant that provides structured product information in JSON format. Always return valid JSON without any additional text or markdown formatting."
+                },
+                {
+                    "role": "user", 
+                    "content": prompt
+                }
+            ],
+            temperature=0.7  # Adjust for creativity vs consistency
+        )
+
+        # Extract JSON from the response
+        response_text = response.choices[0].message.content.strip()
         
-        json_str = json_match.group()
-        parsed_json = json.loads(json_str)
+        # Remove any potential markdown code block formatting
+        response_text = re.sub(r'^```json\s*|\s*```$', '', response_text)
         
-        # Validate required fields
-        required_fields = ['Health_Information', 'Sustainability_Information', 'Price', 'Reliability_index', 'Alternatives']
-        missing_fields = [field for field in required_fields if field not in parsed_json]
-        if missing_fields:
-            raise Exception(f"Missing required fields: {', '.join(missing_fields)}")
-        
-        return parsed_json
-    except json.JSONDecodeError as e:
-        raise Exception(f"Invalid JSON format: {str(e)}")
+        # Parse the JSON
+        try:
+            return json.loads(response_text)
+        except json.JSONDecodeError:
+            # If direct parsing fails, try to find JSON object in the text
+            json_match = re.search(r'({[\s\S]*})', response_text)
+            if json_match:
+                return json.loads(json_match.group(1))
+            raise Exception("Failed to extract valid JSON from API response")
+
     except Exception as e:
-        raise Exception(f"Error extracting JSON: {str(e)}")
+        print(f"OpenAI API Error details: {str(e)}")
+        raise Exception(f"OpenAI API Error: {str(e)}")
 
 def clean_json_structure(data: Dict[str, Any], product_name: str) -> Dict[str, Any]:
-    """Clean and validate the JSON structure with improved error handling."""
+    """Clean and validate the JSON structure."""
     try:
         # Define valid values and defaults
         VALID_DUSTBIN_COLORS = ["blue", "green", "black"]
@@ -205,7 +180,6 @@ def clean_json_structure(data: Dict[str, Any], product_name: str) -> Dict[str, A
                 if isinstance(value, (int, float)):
                     return float(value)
                 if isinstance(value, str):
-                    # Remove any non-numeric characters except dots
                     clean_str = re.sub(r'[^\d.]', '', value)
                     return float(clean_str) if clean_str else default
                 return default
@@ -281,8 +255,6 @@ def clean_json_structure(data: Dict[str, Any], product_name: str) -> Dict[str, A
 
     except Exception as e:
         raise Exception(f"Error cleaning JSON structure: {str(e)}")
-    
-    
 async def save_to_supabase(product_name: str, data: Dict[str, Any]) -> Dict[str, Any]:
     """Save the structured data to Supabase database."""
     try:
@@ -360,9 +332,9 @@ async def save_to_supabase(product_name: str, data: Dict[str, Any]) -> Dict[str,
     except Exception as e:
         print(f"Save error details: {str(e)}")
         raise Exception(f"Database error: {str(e)}")
-    
+
 async def delete_all_data() -> Dict[str, Any]:
-    
+    """Delete all data from the database tables."""
     try:
         # First count the records that will be deleted
         alternatives_count = supabase.table("product_alternatives").select("id", count="exact").execute()
@@ -380,29 +352,25 @@ async def delete_all_data() -> Dict[str, Any]:
     except Exception as e:
         print(f"Detailed error: {str(e)}")
         raise Exception(f"Database deletion error: {str(e)}")
-    
 
+    
 class VisionProcessView(MethodView):
     async def get(self):
         """
         Endpoint to process vision data from JSON file and store in database.
-        Expects a JSON file with just the product name.
+        Simply reads product name from vision_output.json and processes it.
         """
         try:
             # Read product name from vision process file
             product_name = read_vision_process_file()
             print("\nProduct name from vision:", product_name)
             
-            # Get product information from Perplexity API
-            raw_info = get_raw_product_info(product_name)
+            # Get product information from OpenAI API
+            raw_info = call_openai_api(product_name)
             print("\nRaw API info:", raw_info)
             
-            # Extract and clean JSON from API response
-            json_data = extract_json_from_text(raw_info)
-            print("\nExtracted JSON:", json_data)
-            
             # Clean and validate the JSON structure
-            cleaned_data = clean_json_structure(json_data, product_name)
+            cleaned_data = clean_json_structure(raw_info, product_name)
             print("\nCleaned data:", cleaned_data)
             
             # Save to Supabase
@@ -438,8 +406,9 @@ class VisionProcessView(MethodView):
                 "timestamp": datetime.utcnow().isoformat()
             }), 500
 
-# Add this line after the class definition
+# Register routes
 app.add_url_rule('/process_vision', view_func=VisionProcessView.as_view('process_vision'))
+
 @app.route('/fetch_product', methods=['POST'])
 async def fetch_product():
     """Endpoint to fetch and process product information."""
@@ -453,16 +422,12 @@ async def fetch_product():
                 "error": "Product name is required"
             }), 400
         
-        # Get raw product information
-        raw_info = get_raw_product_info(product_name)
+        # Get product information from OpenAI API
+        raw_info = call_openai_api(product_name)
         print("\nRaw info:", raw_info)
         
-        # Extract JSON from the response
-        json_data = extract_json_from_text(raw_info)
-        print("\nExtracted JSON:", json_data)
-        
         # Clean and validate the JSON structure
-        cleaned_data = clean_json_structure(json_data, product_name)
+        cleaned_data = clean_json_structure(raw_info, product_name)
         print("\nCleaned data:", cleaned_data)
         
         # Save to Supabase
@@ -484,8 +449,8 @@ async def fetch_product():
             "error": str(e),
             "timestamp": datetime.utcnow().isoformat()
         }), 500
-
-
+        
+@app.route('/delete_all', methods=['DELETE'])
 async def delete_all_data_route():
     """
     Endpoint to delete all data from the database.
@@ -560,6 +525,7 @@ def health_check():
             "environment": os.getenv('FLASK_ENV', 'production')
         }), 500
 
+# Error handlers
 @app.errorhandler(404)
 def not_found_error(error):
     """Handle 404 errors."""
@@ -589,6 +555,7 @@ def internal_server_error(error):
         "details": str(error)
     }), 500
 
+
 if __name__ == '__main__':
     config = Config()
     config.bind = [f"0.0.0.0:{int(os.getenv('PORT', 5005))}"]
@@ -596,4 +563,3 @@ if __name__ == '__main__':
     
     asgi_app = WsgiToAsgi(app)
     asyncio.run(serve(asgi_app, config))
-    
