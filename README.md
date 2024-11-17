@@ -8,7 +8,8 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Shelf-Care" width="500" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <img src="https://github.com/user-attachments/assets/1d78e9e9-0ba2-4c32-ae28-8938c791a588" alt=![logo]
+"Shelf-Care" width="500" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
 </div>
 
 > Making conscious choices irresistibly rewarding. Scan products, discover eco-friendly alternatives, and earn while you save the planet.
