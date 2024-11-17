@@ -67,6 +67,12 @@ Shelf-Care revolutionizes sustainable shopping by transforming eco-conscious dec
 - Achievement badges and tracking
 - Social sharing incentives
 
+## Architecture 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Shel-Care" width="400" />
+</p>
+
 ## 💼 Business Model
 
 Shelf-Care operates on a multi-sided platform model that creates value for all stakeholders:
