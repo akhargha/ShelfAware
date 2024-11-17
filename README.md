@@ -81,27 +81,6 @@ Shelf-Care operates on a multi-sided platform model that creates value for all s
   <img src="https://github.com/user-attachments/assets/556e4399-9edf-425e-a25d-73a115a6ef19" alt="Model" width="1000" />
 </p>
 
-### For Consumers 👥
-- Free access to product sustainability information
-- Real savings through informed choices
-- Rewards for sustainable decisions
-- Access to exclusive eco-friendly deals
-
-### For Businesses 🏢
-- Increased visibility for sustainable products
-- Direct access to conscious consumers
-- Customer loyalty through reward partnerships
-- Brand enhancement through sustainability metrics
-- Performance analytics and consumer insights
-
-### For Environment 🌍
-- Reduced carbon footprint through informed choices
-- Promotion of sustainable products
-- Waste reduction through conscious consumption
-- Support for eco-friendly initiatives
-
-
-[Rest of the README continues as before with System Architecture, Technology Stack, etc.]
 
 ## 🏗 System Architecture
 
