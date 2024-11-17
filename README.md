@@ -93,8 +93,6 @@ Shelf-Care operates on a multi-sided platform model that creates value for all s
 
 ## 🏗 System Architecture
 
-![System Architecture](./docs/images/architecture.png)
-
 Our system comprises three main components:
 
 1. **Frontend Layer**
