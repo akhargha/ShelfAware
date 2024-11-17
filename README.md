@@ -7,7 +7,9 @@ Another sustainability app? No, we're an app that cares about you, nature, and y
 [![Vite](https://img.shields.io/badge/Vite-5.x-purple.svg)](https://vitejs.dev/)
 [![Python](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
 
-<img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Shel-Care" width="400" height="300" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a1551772-041b-4bf5-978b-eaa157837ad2" alt="Shel-Care" width="400" />
+</p>
 
 > Making conscious choices irresistibly rewarding. Scan products, discover eco-friendly alternatives, and earn while you save the planet.
 
