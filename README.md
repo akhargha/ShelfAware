@@ -151,7 +151,7 @@ Our system comprises three main components:
 |:--:|:--:|:--:|
 | **Anupam** | **Hyun** | **Shivanshu** |
 | [GitHub](https://github.com/akhargha) | [GitHub](https://github.com/Hlucomeister) | [GitHub](https://github.com/shivanshudwivedi) |
-| Backend & ML | Frontend | Product & Design |
+| Frontend | Machine Learning | Backend |
 
 </div>
 
