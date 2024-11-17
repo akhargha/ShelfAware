@@ -116,7 +116,7 @@ export default function InfoBox() {
                   <strong>Biodegradable:</strong>{" "}
                   <Chip
                     color={
-                      sustainability_biodegradable.toLowerCase() === "false"
+                      sustainability_biodegradable.toLowerCase() === "no"
                         ? "danger"
                         : "success"
                     }
@@ -128,7 +128,7 @@ export default function InfoBox() {
                   <strong>Recyclable:</strong>{" "}
                   <Chip
                     color={
-                      sustainability_recyclable.toLowerCase() === "false"
+                      sustainability_recyclable.toLowerCase() === "no"
                         ? "danger"
                         : "success"
                     }
