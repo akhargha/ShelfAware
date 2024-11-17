@@ -4,10 +4,9 @@ import json
 import os
 from datetime import datetime
 from supabase import create_client, Client
+from typing import Dict, Any, List
 import re
 from dotenv import load_dotenv
-from typing import Dict, Any, List, Tuple, Optional
-from urllib.parse import unquote
 
 # Load environment variables
 load_dotenv()
@@ -49,250 +48,90 @@ def call_perplexity_api(messages: List[Dict[str, str]]) -> Dict[str, Any]:
     
     return response.json()
 
-def get_product_info_from_url(url: str) -> Dict[str, Any]:
-    """Get product information from URL using Perplexity's web access."""
-    
-    # First, get basic product information and category
-    initial_prompt = f"""
-    Visit this URL and extract the following information about the product: {url}
-    
-    I need:
-    1. Product name
-    2. Description
-    3. Price (if found)
-    4. Brand
-    5. Category (specifically mention if this is a food item or not)
-    6. Ingredients or materials
-    7. Any health or nutrition information available
-    8. Any sustainability or environmental information available
-    9. Power consumption or energy efficiency (if applicable)
-    10. Product dimensions and specifications
-    
-    Return the information in a clean, structured format.
-    """
-    
-    messages = [{"role": "user", "content": initial_prompt}]
-    response = call_perplexity_api(messages)
-    initial_info = response['choices'][0]['message']['content']
-    
-    # Determine if it's a food item
-    is_food = "food" in initial_info.lower() or "ingredient" in initial_info.lower()
-    
-    # Create nutrients structure based on whether it's a food item
-    nutrients_section = """
-                "Calories": "actual value kcal",
-                "Total_Fat": "actual value g",
-                "Saturated_Fat": "actual value g",
-                "Trans_Fat": "actual value g",
-                "Cholesterol": "actual value mg",
-                "Sodium": "actual value mg",
-                "Total_Carbohydrates": "actual value g",
-                "Dietary_Fiber": "actual value g",
-                "Total_Sugars": "actual value g",
-                "Added_Sugars": "actual value g",
-                "Protein": "actual value g",
-                "Vitamin_D": "actual value mcg",
-                "Calcium": "actual value mg",
-                "Iron": "actual value mg",
-                "Potassium": "actual value mg"
-    """ if is_food else '"Not a food product"'
-
-    health_index = "0" if not is_food else "decimal between 3.0 to 5.0"
-    energy_efficiency = "null" if is_food else '"actual energy rating or consumption"'
-    
-    # Now use this information to get detailed product data
-    detailed_prompt = f"""
-    Based on this product information:
-    
-    {initial_info}
-    
-    This is {"a food item" if is_food else "not a food item"}. Provide detailed information in this exact JSON format:
+def get_raw_product_info(product_name: str) -> str:
+    """Get detailed raw information about the product with improved prompt engineering."""
+    prompt = f"""
+    Provide ONLY a JSON object for {product_name} with EXACT numeric values (no text descriptions in numeric fields).
+    Follow this STRICT format:
 
     {{
         "Health_Information": {{
-            "Nutrients": {{"value": {nutrients_section}}},
-            "Ingredients": ["actual ingredients or materials used"],
-            "Health_index": {health_index}
+            "Nutrients": {{
+                "Calories": "number kcal",
+                "Total_Fat": "number g",
+                "Saturated_Fat": "number g",
+                "Trans_Fat": "number g",
+                "Cholesterol": "number mg",
+                "Sodium": "number mg",
+                "Total_Carbohydrates": "number g",
+                "Dietary_Fiber": "number g",
+                "Total_Sugars": "number g",
+                "Added_Sugars": "number g",
+                "Protein": "number g",
+                "Vitamin_D": "number mcg",
+                "Calcium": "number mg",
+                "Iron": "number mg",
+                "Potassium": "number mg"
+            }},
+            "Ingredients": ["ingredient1", "ingredient2", "ingredient3"], (Find the ingredients of product or make it up)
+            "Health_index": number
         }},
         "Sustainability_Information": {{
             "Biodegradable": "Yes/No",
             "Recyclable": "Yes/No",
-            "Sustainability_rating": "decimal between 3.0 to 5.0",
-            "Energy_Efficiency": {energy_efficiency},
-            "Environmental_Impact": "description of environmental impact"
+            "Sustainability_rating": number
         }},
-        "Price": "actual market price as decimal",
-        "Reliability_index": "decimal between 3.0 to 5.0",
-        "Color_of_the_dustbin": "one of: blue, green, black",
+        "Price": number,
+        "Reliability_index": number,
+        "Color_of_the_dustbin": "blue/green/black",
         "Technical_Specifications": {{
-            "Dimensions": "actual dimensions",
-            "Weight": "actual weight",
-            "Material": "main material",
-            "Additional_Features": ["feature1", "feature2"]
+            "Material": "string"
         }},
         "Alternatives": [
             {{
-                "Name": "alternative product 1",
-                "Brand": "brand name",
+                "Name": "string",
+                "Brand": "string",
                 "Health_Information": {{
-                    "Nutrients": {{"value": {nutrients_section}}},
-                    "Ingredients": ["actual ingredients or materials"],
-                    "Health_index": {health_index}
+                    "Nutrients": {{same as above}},
+                    "Ingredients": ["ingredient1", "ingredient2"],
+                    "Health_index": number
                 }},
                 "Sustainability_Information": {{
                     "Biodegradable": "Yes/No",
                     "Recyclable": "Yes/No",
-                    "Sustainability_rating": "3.5",
-                    "Energy_Efficiency": {energy_efficiency}
+                    "Sustainability_rating": number
                 }},
-                "Price": "estimated price 1",
-                "Reliability_index": "3.7",
-                "Key_Differences": "main differences from original product"
+                "Price": number,
+                "Reliability_index": number,
             }}
         ]
     }}
 
-    IMPORTANT RULES:
-    1. Must provide EXACTLY 3 alternatives with different properties
-    2. For non-food items, all health-related values should be 0 and marked as "Not applicable"
-    3. Estimate market prices based on similar products if exact prices aren't available
-    4. Make alternatives truly different (different brands, features, prices)
-    5. Include specific energy efficiency ratings for appliances
-    6. All ratings (health, sustainability, reliability) must be different for each alternative
-    7. Include actual technical specifications where applicable
-    8. Return valid JSON without any comments or markdown
+    CRITICAL RULES:
+    1. ALL numeric values must be plain numbers (e.g., 7.50 not "$7.50" or "7.50 per liter")
+    2. ALL ratings must be numbers between 2.0 and 5.0
+    3. Prices must be numbers only (no currency symbols or units)
+    4. Health_index and other indices must be numbers only
+    5. Return exactly 3 alternatives
+    6. No additional text or explanations - ONLY the JSON object
+    7. No placeholders or text descriptions in numeric fields
+    8. All the alternatives should be real market alternatives
+    9. All the ingredients should be real market ingredients
     """
     
-    messages = [{"role": "user", "content": detailed_prompt}]
+    messages = [{"role": "user", "content": prompt}]
     response = call_perplexity_api(messages)
     raw_content = response['choices'][0]['message']['content']
-    
-    # Clean and parse JSON
-    json_data = extract_json_from_text(raw_content)
-    
-    # Ensure different indices and prices for alternatives if they exist
-    if "Alternatives" in json_data:
-        base_sustain = float(json_data["Sustainability_Information"]["Sustainability_rating"])
-        base_price = float(str(json_data["Price"]).replace("$", "").strip() or "999.99")
-        
-        for i, alt in enumerate(json_data["Alternatives"]):
-            # Set different sustainability ratings
-            alt["Sustainability_Information"]["Sustainability_rating"] = round(
-                max(3.0, min(5.0, base_sustain + (i * 0.3))), 1
-            )
-            
-            # Set different prices (±10-20%)
-            price_adjustments = [-0.2, 0.1, 0.2]
-            alt["Price"] = round(base_price * (1 + price_adjustments[i]), 2)
-            
-            # Set different health indices for food items
-            if is_food:
-                base_health = float(json_data["Health_Information"]["Health_index"])
-                alt["Health_Information"]["Health_index"] = round(
-                    max(3.0, min(5.0, base_health + (i * 0.2))), 1
-                )
-            else:
-                alt["Health_Information"]["Health_index"] = 0
-    
-    return json_data
-    
-    return json_data@app.route('/product', methods=['GET'])
-async def get_product():
-    """GET endpoint to fetch product information from URL."""
-    try:
-        url = request.args.get('url')
-        if not url:
-            return jsonify({
-                "status": "error",
-                "error": "URL parameter is required"
-            }), 400
-            
-        # Decode URL if it's encoded
-        decoded_url = unquote(url)
-        
-        # Get and process product information
-        product_data = get_product_info_from_url(decoded_url)
-        
-        return jsonify({
-            "status": "success",
-            "data": product_data,
-            "timestamp": datetime.utcnow().isoformat()
-        })
-        
-    except Exception as e:
-        logger.error(f"Error processing URL: {str(e)}")
-        return jsonify({
-            "status": "error",
-            "error": str(e),
-            "timestamp": datetime.utcnow().isoformat()
-        }), 500
+    return raw_content
 
-def extract_product_name(info: str) -> str:
-    """Extract product name from information text."""
-    try:
-        name_match = re.search(r"Product name:?\s*([^\n]+)", info, re.IGNORECASE)
-        if not name_match:
-            name_match = re.search(r"Name:?\s*([^\n]+)", info, re.IGNORECASE)
-        return name_match.group(1).strip() if name_match else "Unknown Product"
-    except Exception as e:
-        logger.error(f"Error extracting product name: {str(e)}")
-        return "Unknown Product"
-
-def process_product_data(data: Dict[str, Any], is_food: bool) -> Dict[str, Any]:
-    """Post-process the product data to ensure consistency and proper values."""
-    try:
-        # Ensure base price is reasonable
-        if "Price" in data:
-            price_str = str(data["Price"]).replace("$", "").strip()
-            try:
-                base_price = float(price_str)
-                if base_price <= 0:
-                    base_price = 99.99  # Default price for invalid values
-            except ValueError:
-                base_price = 99.99
-            data["Price"] = base_price
-
-        # Process alternatives
-        if "Alternatives" in data:
-            base_sustain = float(data["Sustainability_Information"]["Sustainability_rating"])
-            
-            for i, alt in enumerate(data["Alternatives"]):
-                # Set different sustainability ratings
-                alt["Sustainability_Information"]["Sustainability_rating"] = round(
-                    max(3.0, min(5.0, base_sustain + (i * 0.3))), 1
-                )
-                
-                # Set different prices (±10-30%)
-                price_adjustments = [-0.2, 0.1, 0.3]
-                alt["Price"] = round(base_price * (1 + price_adjustments[i]), 2)
-                
-                # Handle health indices
-                if is_food:
-                    base_health = float(data["Health_Information"]["Health_index"])
-                    alt["Health_Information"]["Health_index"] = round(
-                        max(3.0, min(5.0, base_health + (i * 0.2))), 1
-                    )
-                else:
-                    alt["Health_Information"]["Health_index"] = 0
-                    alt["Health_Information"]["Nutrients"] = {"value": "Not a food product"}
-
-                # Set different reliability indices
-                base_reliability = float(data["Reliability_index"])
-                alt["Reliability_index"] = round(
-                    max(3.0, min(5.0, base_reliability + (i * 0.15))), 1
-                )
-
-        return data
-    except Exception as e:
-        logger.error(f"Error processing product data: {str(e)}")
-        raise
 
 def extract_json_from_text(text: str) -> Dict[str, Any]:
     """Extract and parse JSON from text response with improved error handling."""
     try:
         # Clean up common formatting issues
         text = re.sub(r'```json\s*', '', text)
-        text = re.sub(r'```\s*', '', text)
+        text = re.sub(r'\s*', '', text)
+        text = re.sub(r'\n\s*#.*$', '', text, flags=re.MULTILINE)  # Remove comments
         
         # Find the JSON content
         json_match = re.search(r'\{[\s\S]*\}', text)
@@ -300,118 +139,112 @@ def extract_json_from_text(text: str) -> Dict[str, Any]:
             raise Exception("No JSON found in response")
         
         json_str = json_match.group()
-        json_str = json_str.replace('\n', ' ')
-        json_str = re.sub(r',\s*}', '}', json_str)
-        json_str = re.sub(r',\s*]', ']', json_str)
+        parsed_json = json.loads(json_str)
         
-        return json.loads(json_str)
+        # Validate required fields
+        required_fields = ['Health_Information', 'Sustainability_Information', 'Price', 'Reliability_index', 'Alternatives']
+        missing_fields = [field for field in required_fields if field not in parsed_json]
+        if missing_fields:
+            raise Exception(f"Missing required fields: {', '.join(missing_fields)}")
+        
+        return parsed_json
     except json.JSONDecodeError as e:
-        print(f"JSON Error: {str(e)}")
-        print(f"Problematic JSON: {text}")
         raise Exception(f"Invalid JSON format: {str(e)}")
     except Exception as e:
-        print(f"Extraction Error: {str(e)}")
-        print(f"Raw text: {text}")
         raise Exception(f"Error extracting JSON: {str(e)}")
 
 def clean_json_structure(data: Dict[str, Any], product_name: str) -> Dict[str, Any]:
-    """Clean and validate the JSON structure."""
+    """Clean and validate the JSON structure with improved error handling."""
     try:
-        # Define valid dustbin colors
-        VALID_DUSTBIN_COLORS = ["blue", "green", "yellow", "red", "black", "brown"]
+        # Define valid values and defaults
+        VALID_DUSTBIN_COLORS = ["blue", "green", "black"]
+        DEFAULT_RATING = 4.0
+        DEFAULT_PRICE = 9.99
         
-        # Default nutrients structure
-        default_nutrients = {
-            "Calories": "150 kcal",
-            "Total_Fat": "5g",
-            "Saturated_Fat": "2g",
-            "Trans_Fat": "0.1g",
-            "Cholesterol": "10mg",
-            "Sodium": "200mg",
-            "Total_Carbohydrates": "25g",
-            "Dietary_Fiber": "3g",
-            "Total_Sugars": "5g",
-            "Added_Sugars": "2g",
-            "Protein": "8g",
-            "Vitamin_D": "2mcg",
-            "Calcium": "100mg",
-            "Iron": "2mg",
-            "Potassium": "200mg"
-        }
+        def clean_number(value: Any, default: float) -> float:
+            """Clean and validate numeric values."""
+            try:
+                if isinstance(value, (int, float)):
+                    return float(value)
+                if isinstance(value, str):
+                    # Remove any non-numeric characters except dots
+                    clean_str = re.sub(r'[^\d.]', '', value)
+                    return float(clean_str) if clean_str else default
+                return default
+            except (ValueError, TypeError):
+                return default
 
-        # Get or validate dustbin color
-        dustbin_color = data.get("Color_of_the_dustbin", "").lower()
-        if not dustbin_color or dustbin_color not in VALID_DUSTBIN_COLORS:
-            dustbin_color = "blue"
+        def clean_rating(value: Any) -> float:
+            """Clean and validate rating values to be between 3.0 and 5.0."""
+            rating = clean_number(value, DEFAULT_RATING)
+            return max(3.0, min(5.0, rating))
 
+        # Clean main product data
         cleaned_data = {
             "Health_Information": {
-                "Nutrients": data.get("Health_Information", {}).get("Nutrients", default_nutrients),
+                "Nutrients": data.get("Health_Information", {}).get("Nutrients", {}),
                 "Ingredients": data.get("Health_Information", {}).get("Ingredients", []),
-                "Health_index": float(str(data.get("Health_Information", {}).get("Health_index", "4.0")))
+                "Health_index": clean_rating(data.get("Health_Information", {}).get("Health_index", DEFAULT_RATING))
             },
             "Sustainability_Information": {
-                "Biodegradable": str(data.get("Sustainability_Information", {}).get("Biodegradable", "Yes")),
-                "Recyclable": str(data.get("Sustainability_Information", {}).get("Recyclable", "Yes")),
-                "Sustainability_rating": float(str(data.get("Sustainability_Information", {}).get("Sustainability_rating", "4.0")))
+                "Biodegradable": str(data.get("Sustainability_Information", {}).get("Biodegradable", "No")).capitalize(),
+                "Recyclable": str(data.get("Sustainability_Information", {}).get("Recyclable", "Yes")).capitalize(),
+                "Sustainability_rating": clean_rating(data.get("Sustainability_Information", {}).get("Sustainability_rating", DEFAULT_RATING))
             },
-            "Price": float(str(data.get("Price", "9.99")).replace("$", "").strip()),
-            "Reliability_index": float(str(data.get("Reliability_index", "4.0"))),
-            "Color_of_the_dustbin": dustbin_color,
+            "Price": clean_number(data.get("Price", DEFAULT_PRICE), DEFAULT_PRICE),
+            "Reliability_index": clean_rating(data.get("Reliability_index", DEFAULT_RATING)),
+            "Color_of_the_dustbin": data.get("Color_of_the_dustbin", "blue").lower(),
             "Alternatives": []
         }
 
-        # Ensure ingredients is always an array
-        if not isinstance(cleaned_data["Health_Information"]["Ingredients"], list):
-            cleaned_data["Health_Information"]["Ingredients"] = []
-
         # Process alternatives
         alternatives = data.get("Alternatives", [])
-        for alt in alternatives[:3]:  # Ensure exactly 3 alternatives
+        for alt in alternatives[:3]:
             cleaned_alt = {
-                "Name": str(alt.get("Name", f"Alternative {len(cleaned_data['Alternatives'])+1}")),
+                "Name": str(alt.get("Name", "Alternative Product")),
+                "Brand": str(alt.get("Brand", "Unknown Brand")),
                 "Health_Information": {
-                    "Nutrients": alt.get("Health_Information", {}).get("Nutrients", default_nutrients.copy()),
+                    "Nutrients": alt.get("Health_Information", {}).get("Nutrients", {}),
                     "Ingredients": alt.get("Health_Information", {}).get("Ingredients", []),
-                    "Health_index": float(str(alt.get("Health_Information", {}).get("Health_index", "4.0")))
+                    "Health_index": clean_rating(alt.get("Health_Information", {}).get("Health_index", DEFAULT_RATING))
                 },
                 "Sustainability_Information": {
-                    "Biodegradable": str(alt.get("Sustainability_Information", {}).get("Biodegradable", "Yes")),
-                    "Recyclable": str(alt.get("Sustainability_Information", {}).get("Recyclable", "Yes")),
-                    "Sustainability_rating": float(str(alt.get("Sustainability_Information", {}).get("Sustainability_rating", "4.0")))
+                    "Biodegradable": str(alt.get("Sustainability_Information", {}).get("Biodegradable", "No")).capitalize(),
+                    "Recyclable": str(alt.get("Sustainability_Information", {}).get("Recyclable", "Yes")).capitalize(),
+                    "Sustainability_rating": clean_rating(alt.get("Sustainability_Information", {}).get("Sustainability_rating", DEFAULT_RATING))
                 },
-                "Price": float(str(alt.get("Price", "9.99")).replace("$", "").strip()),
-                "Reliability_index": float(str(alt.get("Reliability_index", "4.0")))
+                "Price": clean_number(alt.get("Price", DEFAULT_PRICE), DEFAULT_PRICE),
+                "Reliability_index": clean_rating(alt.get("Reliability_index", DEFAULT_RATING)),
+                "Key_Differences": str(alt.get("Key_Differences", "Alternative product option"))
             }
-            
-            # Ensure ingredients is always an array for alternatives
-            if not isinstance(cleaned_alt["Health_Information"]["Ingredients"], list):
-                cleaned_alt["Health_Information"]["Ingredients"] = []
-                
             cleaned_data["Alternatives"].append(cleaned_alt)
 
-        # Ensure exactly 3 alternatives with default values
+        # Ensure exactly 3 alternatives
         while len(cleaned_data["Alternatives"]) < 3:
             cleaned_data["Alternatives"].append({
                 "Name": f"Alternative {len(cleaned_data['Alternatives'])+1}",
+                "Brand": "Generic Brand",
                 "Health_Information": {
-                    "Nutrients": default_nutrients.copy(),
+                    "Nutrients": {},
                     "Ingredients": [],
-                    "Health_index": 4.0
+                    "Health_index": DEFAULT_RATING
                 },
                 "Sustainability_Information": {
-                    "Biodegradable": "Yes",
+                    "Biodegradable": "No",
                     "Recyclable": "Yes",
-                    "Sustainability_rating": 4.0
+                    "Sustainability_rating": DEFAULT_RATING
                 },
-                "Price": 9.99,
-                "Reliability_index": 4.0
+                "Price": DEFAULT_PRICE,
+                "Reliability_index": DEFAULT_RATING,
+                "Key_Differences": "Alternative product option"
             })
 
         return cleaned_data
+
     except Exception as e:
         raise Exception(f"Error cleaning JSON structure: {str(e)}")
-
+    
+    
 async def save_to_supabase(product_name: str, data: Dict[str, Any]) -> Dict[str, Any]:
     """Save the structured data to Supabase database."""
     try:
@@ -629,73 +462,6 @@ def health_check():
             "version": "1.0.0",
             "environment": os.getenv('FLASK_ENV', 'production')
         }), 500
-    
-@app.route('/go', methods=['GET'])
-async def process_vision():
-    """
-    GET endpoint to process vision output JSON and extract text field.
-    Returns processed product information based on the extracted text.
-    """
-    try:
-        # Path to vision output JSON file
-        vision_file_path = 'vision_output.json'
-        
-        # Check if file exists
-        if not os.path.exists(vision_file_path):
-            return jsonify({
-                "status": "error",
-                "error": "Vision output file not found",
-                "timestamp": datetime.utcnow().isoformat()
-            }), 404
-            
-        # Read and parse the JSON file
-        try:
-            with open(vision_file_path, 'r') as file:
-                vision_data = json.load(file)
-        except json.JSONDecodeError as e:
-            return jsonify({
-                "status": "error",
-                "error": f"Invalid JSON in vision output file: {str(e)}",
-                "timestamp": datetime.utcnow().isoformat()
-            }), 400
-            
-        # Extract text field
-        text = vision_data.get('text')
-        if not text:
-            return jsonify({
-                "status": "error",
-                "error": "No text field found in vision output",
-                "timestamp": datetime.utcnow().isoformat()
-            }), 400
-            
-        # Get raw product information
-        raw_info = get_raw_product_info(text)
-        
-        # Extract JSON from the response
-        json_data = extract_json_from_text(raw_info)
-        
-        # Clean and validate the JSON structure
-        cleaned_data = clean_json_structure(json_data, text)
-        
-        # Save to Supabase
-        result = await save_to_supabase(text, cleaned_data)
-        
-        return jsonify({
-            "status": "success",
-            "message": "Vision output processed successfully",
-            "product_id": result["product_id"],
-            "data": cleaned_data,
-            "original_text": text,
-            "timestamp": datetime.utcnow().isoformat()
-        })
-        
-    except Exception as e:
-        print(f"Error processing vision output: {str(e)}")
-        return jsonify({
-            "status": "error",
-            "error": str(e),
-            "timestamp": datetime.utcnow().isoformat()
-        }), 500
 
 @app.errorhandler(404)
 def not_found_error(error):
@@ -728,7 +494,7 @@ def internal_server_error(error):
 
 if __name__ == '__main__':
     # Set default port
-    port = int(os.getenv('PORT', 5003))
+    port = int(os.getenv('PORT', 5000))
     
     # Set debug mode based on environment
     debug = os.getenv('FLASK_ENV', 'production') == 'development'
